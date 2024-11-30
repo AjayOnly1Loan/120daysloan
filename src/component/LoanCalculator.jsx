@@ -289,7 +289,7 @@ const LoanCalculator = () => {
                                 Detailed information to help you understand your financial commitment.
                             </Typography>
                             <Typography sx={{ marginTop: 3, fontSize: '1.5rem', fontWeight: 'bold' }}>
-                                You have to pay
+                                You have to pay    ffffffffff
                             </Typography>
 
                             <Typography sx={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
