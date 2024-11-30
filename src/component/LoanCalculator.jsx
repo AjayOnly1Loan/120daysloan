@@ -142,8 +142,8 @@ const LoanCalculator = () => {
                                 />
                                 <Slider
                                     value={loanAmount}
-                                    min={5000}
-                                    max={100000}
+                                    min={50000}
+                                    max={500000}
                                     onChange={handleLoanAmountChange}
                                     valueLabelDisplay="auto"
                                     marks={[{ value: 50000, label: '50K' }, { value: 500000, label: '500K' }]}
@@ -191,10 +191,10 @@ const LoanCalculator = () => {
                                 <Slider
                                     value={loanTenure}
                                     min={1}
-                                    max={90}
+                                    max={120}
                                     onChange={handleLoanTenureChange}
                                     valueLabelDisplay="auto"
-                                    marks={[{ value: 1, label: '1' }, { value: 90, label: '90' }]}
+                                    marks={[{ value: 1, label: '1' }, { value: 120, label: '120' }]}
                                     sx={{
                                         color: 'black',
                                         height: 8,
@@ -265,7 +265,7 @@ const LoanCalculator = () => {
                                         backgroundColor: '#4D0F4A',
                                         borderRadius: '16px',
                                         paddingY: 2,
-                                        paddingX:{xs:14,md:27},
+                                        paddingX:{xs:14,md:24},
                                     }}
                                 >
                                     <Typography>₹{totalAmount}</Typography>
