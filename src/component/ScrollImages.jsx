@@ -3,10 +3,13 @@ import { Box, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 // Import your images
-import image1 from '../assets/image/about us qua (1).webp';
-import image2 from '../assets/image/apply now qua final (1).webp';
-import image3 from '../assets/image/contact us qua (1).webp';
-import image4 from '../assets/image/contact us qua (1).webp';
+import image1 from '../assets/image/loan5-xq3OJlls.jpg';
+import image2 from '../assets/image/loan2-Di7YpTyO.jpg';
+import image3 from '../assets/image/loan3-I91CnJnT.jpg';
+import image4 from '../assets/image/loan4-CZnnZScB.jpg';
+import image5 from '../assets/image/loan7-DUvIVGTB.jpg';
+import image6 from '../assets/image/loan9-vwTE-pfN.jpg';
+import image7 from '../assets/image/loan8-B6NTYQlY.jpg'
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -172,8 +175,8 @@ const useStyles = makeStyles(() => ({
 
 const ScrollImages = () => {
   const classes = useStyles();
-  const images = [image1, image2, image3, image4];
-  const texts = ['About Us', 'Apply Now', 'Contact Us', 'More Info'];
+  const images = [image1, image2, image3, image4,image5,image6,image7];
+  const texts = ['Makeartistup  ', 'Entrepreneur', 'Butique', 'Salon','Contractor','Small Buisness Owner','Startup'];
   const scrollRef = useRef();
 
   const handleScroll = () => {

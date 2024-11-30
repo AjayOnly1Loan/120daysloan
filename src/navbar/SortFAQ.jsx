@@ -225,12 +225,9 @@ const faqItems = [
     },
     {
         question: 'What loan amount can I borrow?',
-        answer: 'We provide loans ranging from INR 50,000 to INR 5 lakhs, depending on the business\'s needs, repayment capacity, and eligibility.',
+        answer: 'We provide loans ranging from INR 50,000 to INR 5 lacs, depending on the business requirements, repayment capacity, and eligibility.',
     },
-    {
-        question: 'Unlock your business\'s true potential',
-        answer: 'Unlock your business\'s true potential with flexible financing solutions tailored to your growth.',
-    },
+    
 ];
 
 export default SortFAQ;

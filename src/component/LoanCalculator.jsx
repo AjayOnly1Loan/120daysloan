@@ -88,7 +88,7 @@ const LoanCalculator = () => {
                         Personal Loan Calculator
                     </Typography>
                     <Typography  align="center" gutterBottom sx={{ color: 'white',fontSize:{xs: '16px', sm: '22px' } }}>
-                    "Easily estimate your loan details with our handy calculator. See how different loan amounts, tenures, and interest rates impact your total payable amount. Find out exactly what you'll owe and plan your finances confidently."                    </Typography>
+                    Easily estimate your loan details with our handy calculator. See how different loan amounts, tenures, and interest rates impact your total payable amount. Find out exactly what you'll owe and plan your finances confidently.                    </Typography>
 
                     <Grid container spacing={0} justifyContent="center">
                         <Grid item xs={12} md={12}>

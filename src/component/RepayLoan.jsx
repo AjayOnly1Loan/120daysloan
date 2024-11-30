@@ -1,7 +1,7 @@
 import React from 'react';
 import WarningIcon from '@mui/icons-material/Warning'; // Import Warning icon
 import AXIS from '../assets/image/axis (1).png';
-import repayaImage from '../assets/image/Repay Now qua (1).webp';
+import repayaImage from '../assets/image/aboutus.webp';
 import { Grid, Box, Typography, Divider } from '@mui/material';
 
 const RepayLoan = () => {

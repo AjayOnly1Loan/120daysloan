@@ -86,8 +86,10 @@ const Footer = () => {
 
             }}
           >
-            Unlock your business’s true potential with flexible finance solutions tailored to your growth.
-          </Typography>
+
+Being a one-stop solution for your financial needs, we're here to make your journey smoother!
+
+        </Typography>
           <Typography
             sx={{
               fontWeight: 'bold',

@@ -1,32 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import backgroundImage from "../assets/image/frontend.webp";
+import backgroundImage from "../assets/image/front.webp";
 
 const FrontPage = () => {
   const theme = useTheme();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false); // Reset animation when component is out of view
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the component is visible
+    );
+
+    const element = document.getElementById("animated-box");
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
 
   return (
     <Box
+      id="animated-box"
       sx={{
         width: "100%",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: { xs: "50vh", md: "100vh" }, // Responsive height for small and large screens
+        minHeight: { xs: "50vh", md: "100vh" },
         padding: "30px",
-        background: "linear-gradient(to bottom, black, #4D0F4A, #140514)", // Top-to-bottom gradient
+        background: "linear-gradient(to bottom, black, #4D0F4A, #140514)",
         border: "none",
         height: {
-          xs: "50vh", // Smaller height for extra small screens
-          sm: "80vh", // Moderate height for small screens
-          md: "100vh", // Full height for medium to large screens
+          xs: "50vh",
+          sm: "80vh",
+          md: "100vh",
         },
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        overflow: "hidden", // Prevents content overflow
+        overflow: "hidden",
       }}
     >
       {/* Background Image Section */}
@@ -37,20 +63,23 @@ const FrontPage = () => {
           backgroundPosition: "center",
           width: "100%",
           height: {
-            xs: "100%", // Image adjusts fully to container on small screens
-            md: "100%", // Image maintains full height on larger screens
+            xs: "100%",
+            md: "100%",
           },
-          borderRadius: "20px", // Optional: Add inner container rounding
+          borderRadius: "20px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          color: "white",
+          color: "black",
           textAlign: "center",
           boxSizing: "border-box",
+          transition: "transform 1s ease-out, opacity 1s ease-out", // Smooth animation
+          transform: isVisible ? "scale(1)" : "scale(0.5)", // Scale effect
+          opacity: isVisible ? 1 : 0, // Fade-in effect
         }}
       >
-        
+       
       </Box>
     </Box>
   );

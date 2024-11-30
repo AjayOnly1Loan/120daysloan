@@ -18,7 +18,26 @@ const AboutUs = () => {
  // Hooks to detect visibility of the elements
  const [titleRef, titleInView] = useInView({ triggerOnce: false, threshold: 0.7 });
   const [textRef, textInView] = useInView({ triggerOnce: false, threshold: 0.3 });
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false); // Reset animation when the box leaves the viewport
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the box is visible
+    );
 
+    const target = document.getElementById("image-box");
+    if (target) observer.observe(target);
+
+    return () => {
+      if (target) observer.unobserve(target);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,7 +65,6 @@ const AboutUs = () => {
   }, []);
 
 
-  const [isVisible, setIsVisible] = useState(false);
   const faqRef = useRef(null);
 
   useEffect(() => {
@@ -115,15 +133,20 @@ const AboutUs = () => {
         }}
       >
    
-      {/* Image Section */}
-      <Box 
-      
-      sx={{ 
-        position: 'relative',
-        width: '100%',
-        height: { xs: '50vh', sm: '60vh', md: '60vh', lg: '110vh' },          
-        overflow: 'hidden',
+   <Box
+      id="image-box"
+      sx={{
+        position: "relative",
+        width: "100%",
+        height: { xs: "50vh", sm: "60vh", md: "60vh", lg: "110vh" },
+        overflow: "hidden",
         mb: 2,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        transition: "transform 1s ease-out, opacity 1s ease-out",
+        transform: isVisible ? "scale(1)" : "scale(0.5)", // Animation scaling effect
+        opacity: isVisible ? 1 : 0, // Fade in and out
       }}
     >
       <Box
@@ -131,19 +154,20 @@ const AboutUs = () => {
         src={aboutImage}
         alt="Contact Us"
         sx={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          padding: {xs:'1px',md:'10px'},
-
-          border: '2px solid transparent', // Added a solid border for consistency
-          borderRadius: '50px',
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          padding: { xs: "1px", md: "10px" },
+          border: "2px solid transparent",
+          borderRadius: "50px",
         }}
       />
     </Box>
+  
+
         
 
 
@@ -192,20 +216,9 @@ const AboutUs = () => {
             marginBottom: { xs: '20px', md: '90px' },
           }}
         >
-          Welcome to 120daysfinance.com, a pioneering financial partner for small businesses across India.
-          Our mission is simple: to empower entrepreneurs with quick, hassle-free loans designed to meet their urgent
-          capital needs. With a streamlined application process, we specialize in providing 120-day loans, ensuring
-          businesses have the working capital to grow and thrive.
-
-          As a proud lending partner of Naman Finlease Private Limited, an established Non-Banking Financial Company
-          (NBFC), we bring credibility and trust to every loan we provide. At 120daysfinance.com, we understand that
-          time is of the essence for businesses, and that's why our solutions are built around speed, flexibility, and
-          transparency.
-
-          Whether you need capital for new inventory, marketing, or to manage daily operations, we’ve got your back.
-          With easy repayment options and personalized support, we’re here to help you unlock growth and seize new
-          opportunities. At 120daysfinance.com, we’re more than just lenders — we’re partners in your business success.
-          Let’s grow together.
+At 120daysfinance, we understand that life can throw unexpected challenges so every business needs to meet their urgent requirements. And sometimes, a little financial boost can make a huge difference.
+That’s why we are here to help you – a leading financial partner for small businesses across India. We provide our users with the quickest, most reliable, and complete hassle-free solutions for their financial concerns.
+We are not just another financial service provider but an established NBFC. Our main motto lies in empowering entrepreneurs with the confidence to manage their expenses without hassles.
         </Typography>
       </Fade>
     

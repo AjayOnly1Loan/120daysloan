@@ -75,7 +75,7 @@ const ApplyNow = () => {
 <Grid container spacing={3}>
   <Grid item xs={12} md={6}>
     <TextField 
-      label="First Name" 
+      label="Full Name" 
       variant="outlined"
       fullWidth 
       required 
@@ -92,7 +92,7 @@ const ApplyNow = () => {
           color: 'white',  // Text color
         },
       }}
-      placeholder="Enter your first name"
+      placeholder="Enter your full name"
       sx={{ 
         mb: 2, 
         color: 'white',  // Text color
@@ -126,7 +126,7 @@ const ApplyNow = () => {
   </Grid>
   <Grid item xs={12} md={6}>
     <TextField 
-      label="PAN Number" 
+      label="PAN Card" 
       variant="outlined" 
       fullWidth 
       required 
@@ -337,6 +337,77 @@ const ApplyNow = () => {
           }}
         />
       </Grid>
+      <Grid item xs={12} md={6}>
+  <TextField
+    label="Business Property"
+    variant="outlined"
+    fullWidth
+    required
+    select
+    name="businessProperty"
+    placeholder="Property Type"
+    sx={{
+      mb: 2,
+      borderRadius: '8px',
+      transition: 'transform 0.2s',
+      '&:hover': {
+        transform: 'scale(1.02)',
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'white', // Border color
+        },
+        '&:hover fieldset': {
+          borderColor: 'white', // Border color on hover
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'white', // Border color on focus
+        },
+      },
+      '& .MuiInputLabel-root': {
+        color: 'white', // Label color
+      },
+      '& .MuiInputBase-input': {
+        color: 'white', // Text input color
+      },
+      '& .MuiSelect-icon': {
+        color: 'white', // Dropdown icon color
+        position: 'absolute',
+        right: '16px', // Align to the right of the input box
+        top: '50%', // Vertically align icon
+        transform: 'translateY(-50%)', // Center the icon
+      },
+      '& option': {
+        backgroundColor: 'white', // Dropdown option background
+        color: 'black', // Dropdown option text color
+      },
+    }}
+    SelectProps={{
+      native: true, // Native HTML <select>
+    }}
+    InputProps={{
+      startAdornment: (
+        <InputAdornment position="start">
+          <Box sx={{ backgroundColor: 'white', borderRadius: '50%', padding: '4px' }}>
+            <Business sx={{ color: 'black' }} />
+          </Box>
+        </InputAdornment>
+      ),
+    }}
+    defaultValue="" // Ensures the default placeholder works properly
+  >
+    <option value="" disabled>
+      Property Type
+    </option>
+    <option value="own">Own</option>
+    <option value="rental">Rental</option>
+  </TextField>
+</Grid>
+
+
+
+
+      
 
       {/* GST Number */}
       <Grid item xs={12} md={6}>
@@ -644,12 +715,15 @@ const ApplyNow = () => {
           }}
         />
       </Grid>
+      
     </Grid>
           {/* Checkbox for Terms and Privacy */}
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
             <FormControlLabel
               control={
                 <Checkbox
+                required
+
                   checked={termsAccepted}
                   onChange={handleCheckboxChange}
                   sx={{color:'white'}}
