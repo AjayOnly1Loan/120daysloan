@@ -31,10 +31,10 @@ const slideInLeft = keyframes`
 `;
 
 const LoanCalculator = () => {
-    const [loanAmount, setLoanAmount] = useState(5000);
+    const [loanAmount, setLoanAmount] = useState(50000);
     const [loanTenure, setLoanTenure] = useState(1);
     const [interestRate, setInterestRate] = useState(0.5);
-    const [totalAmount, setTotalAmount] = useState(51000);
+    const [totalAmount, setTotalAmount] = useState(510000);
     const [dailyPayment, setDailyPayment] = useState(0);
     const [showDialog, setShowDialog] = useState(false); // State for dialog visibility
 
@@ -119,7 +119,7 @@ const LoanCalculator = () => {
                                     value={loanAmount}
                                     onChange={(e) => {
                                         const value = Number(e.target.value);
-                                        if (value >= 5000 && value <= 100000) {
+                                        if (value >= 50000 && value <= 500000) {
                                             setLoanAmount(value);  // Update only if within the valid range
                                         }
                                     }}
@@ -146,7 +146,7 @@ const LoanCalculator = () => {
                                     max={100000}
                                     onChange={handleLoanAmountChange}
                                     valueLabelDisplay="auto"
-                                    marks={[{ value: 5000, label: '5K' }, { value: 100000, label: '100K' }]}
+                                    marks={[{ value: 50000, label: '50K' }, { value: 500000, label: '500K' }]}
                                     sx={{
                                         color: 'black',
                                         height: 8,
@@ -167,7 +167,7 @@ const LoanCalculator = () => {
                                     value={loanTenure}
                                     onChange={(e) => {
                                         const value = Number(e.target.value);
-                                        if (value >= 1 && value <= 90) {
+                                        if (value >= 1 && value <= 120) {
                                             setLoanTenure(value);  // Update only if within the valid range
                                         }
                                     }}
