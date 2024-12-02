@@ -117,27 +117,27 @@ const PrivacyPolicy = () => {
             >
                 {/* Image Section */}
                 <Box 
-                    sx={{ 
-                        position: 'relative',
-                        width: '100%',
-                        height: { xs: '80vh', sm: '80vh', md: '80vh', lg: '80vh' },
-                        overflow: 'hidden',
-                        mb: 2,
-                    }}
-                >
-                    <Slide direction="left" in={isVisible} timeout={1000}>
-                        <img 
-                            src={privacyImage} 
-                            alt="Privacy Policy" 
-                            style={{
-                                width: '100%', 
-                                height: '80vh', 
-                                objectFit: 'cover',
-                                borderRadius: '50px'
-                            }} 
-                        />
-                    </Slide>
-                </Box>
+    sx={{ 
+        position: 'relative',
+        width: '100%',
+        height: { xs: '60vh', sm: '60vh', md: '80vh', lg: '90vh' }, // Same height as the image
+        overflow: 'hidden',
+        mb: 2,
+    }}
+>
+    <Slide direction="left" in={isVisible} timeout={1000}>
+        <img 
+            src={privacyImage} 
+            alt="Privacy Policy" 
+            style={{
+                width: '100%', 
+                height: '100%', // Matches the Box height
+                objectFit: 'cover',
+                borderRadius: '50px'
+            }} 
+        />
+    </Slide>
+</Box>
 
                 <Container maxWidth="lg">
                     {/* Prominent Heading */}

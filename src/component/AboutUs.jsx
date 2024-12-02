@@ -158,7 +158,7 @@ const AboutUs = () => {
           top: 0,
           left: 0,
           width: "100%",
-          height: "100%",
+          height: "90%",
           objectFit: "cover",
           padding: { xs: "1px", md: "10px" },
           border: "2px solid transparent",

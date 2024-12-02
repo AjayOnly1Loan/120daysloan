@@ -33,7 +33,7 @@ const RepayLoan = () => {
           top: 0,
           left: 0,
           width: '100%',
-          height: '100%',
+          height: '90%',
           objectFit: 'cover',
           padding: { xs: '5px', md: '5px' },
           border: '2px solid transparent',

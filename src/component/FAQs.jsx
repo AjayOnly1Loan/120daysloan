@@ -47,7 +47,7 @@ const FAQs = () => {
         <img 
           src={ApplyNowImage} 
           alt="Apply Now" 
-          style={{ width: '100%', height: '30%',marginTop:'0px' ,borderRadius:'30px'}} 
+          style={{ width: '100%', height: '90vh',marginTop:'0px' ,borderRadius:'30px'}} 
         />
         
                 <Typography

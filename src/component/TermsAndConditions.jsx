@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Container, Paper, Divider } from '@mui/material';
 import { Fade } from '@mui/material';
-import ApplyNowImage from '../assets/image/Terms & Condition.jpg'; // Replace with your image path
+import ApplyNowImage from '../assets/image/Terms-Conditon-Banner-Image.jpg'; // Replace with your image path
 
 const TermsAndConditions = () => {
     return (
@@ -16,8 +16,13 @@ const TermsAndConditions = () => {
                  <img 
           src={ApplyNowImage} 
           alt="Apply Now" 
-          style={{ width: '100%', height: '30%',marginTop:'0px' ,borderRadius:'30px'}} 
-        />
+          style={{
+            width: '100%',
+            height: '90vh', // Fixed height
+            marginTop: '0px',
+            borderRadius: '30px',
+            objectFit: 'cover', // Ensures the image is cropped properly to fit
+          }}        />
         
                 <Container maxWidth="lg">
 
