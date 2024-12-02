@@ -1,90 +1,89 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Box, Typography, Container, Paper, Divider, Slide, Fade } from '@mui/material';
-import privacyImage from '../assets/image/Privacy Policy (1).webp';
+import privacyImage from '../assets/image/Privacy-Policy-(1).jpg';
 
 const PrivacyPolicy = () => {
     const sections = [
         {
             title: "Privacy Policy",
             content: [
-                "At QUAloan.com, a lending platform under Naman Finlease Private Limited, we prioritize your privacy. This policy explains how we collect, use, and protect your data. By using QUAloan.com, you agree to the collection and use of your information as outlined in this Privacy Policy."
+                "  At 120daysfinance.com, your privacy and trust are of utmost importance to us. This Privacy Policy outlines how we collect, use, and protect your personal information when you access our website or use our services. We are committed to ensuring that your data is handled securely and transparently."
             ]
         },
         {
             title: "1. Information We Collect",
             content: [
-                "We collect the following types of information:",
-                "• Personal Identification: Full Name, Email, Phone Number, Date of Birth, Address, PAN, Aadhaar, Employment Information, Bank Account Details, and Financial Data.",
-                "• Financial Information: Documents such as Bank Statements, Salary Slips, and Consent for Credit Checks are required for loan applications.",
-                "• Transactional Information: Details about your loans, repayment schedules, and transaction history are recorded."
+                "When you interact with 120daysfinance.com, we may collect the following types of information:",
+                "• Personal Identification Information: Name, email address, phone number, physical address, date of birth, PAN, Aadhar details, etc.",
+                "• Financial Information: Bank account details, income statements, GST Number, credit history when applying for a loan, Statement of Bank Account, etc."
             ]
         },
+        
         {
             title: "2. How We Use Your Information",
             content: [
-                "Your information is used for:",
-                "• Loan Processing: We assess your loan eligibility, process applications, and manage repayments.",
-                "• Service Improvement: We enhance our platform based on user feedback and interactions.",
-                "• Communication: We send notifications and respond to inquiries related to our services.",
-                "• Compliance: We comply with legal requirements like KYC and AML regulations."
+                "We use your information to: ",
+                "• Evaluate your loan eligibility and process applications effectively.",
+                "• Provide better service by understanding your preferences and feedback.",
+                "• Communicate important updates, notifications, and respond to inquiries.",
+                "• Ensure compliance with legal and regulatory requirements, including KYC and AML norms."
             ]
         },
+        
         {
             title: "3. Sharing Your Information",
             content: [
-                "Your information may be shared with:",
-                "• Authorized Third Parties: We work with Credit Bureaus, Payment Gateways, and Verification Agencies to process and verify your information.",
-                "• Legal Authorities: We may disclose your information as required by law, such as for regulatory reporting or fraud investigations.",
-                "• Parent Company: We may share data with our parent company, Naman Finlease Private Limited, for loan processing."
+                "We do not sell or rent your personal information to third parties. However, we may share your data under the following circumstances:",
+                "• With trusted third-party service providers who assist in delivering our services, such as payment processors, verification agencies, etc.",
+                "• To comply with legal obligations, regulatory requests, or to protect the rights and safety of 120daysfinance.com and its users.",
+                "• With Naman Finlease Private Limited, our parent NBFC, for processing loan applications and facilitating transactions."
             ]
         },
+        
         {
             title: "4. Data Security",
             content: [
-                "We employ encryption, secure servers, and multi-factor authentication to safeguard your data. However, no system is 100% secure, and we encourage users to exercise caution."
+                "120daysfinance.com takes appropriate measures to protect your personal and financial data. We use industry-standard encryption methods and secure servers to prevent unauthorized access, data breaches, or misuse of information."
             ]
         },
+        
         {
-            title: "5. Cookies and Tracking",
+            title: "5. Cookies",
             content: [
-                "We use cookies and tracking technologies to enhance your browsing experience. You can control cookies through browser settings."
+                "Our website may use cookies to improve the user experience. Cookies are small text files stored on your device that help us understand how you use our website. You can choose to accept or decline cookies in your browser settings. However, declining cookies may affect your ability to use certain features on the site."
             ]
         },
         {
             title: "6. Your Rights",
             content: [
-                "You have the right to access, correct, delete, or request portability of your data. You can also opt out of marketing communications at any time."
+                "You have the right to:",
+                "• Access the personal information we hold about you.",
+                "• Request corrections to any inaccurate or incomplete information.",
+                "• Opt out of marketing communications at any time.",
+                "• Request deletion of your personal data, subject to legal obligations."
             ]
         },
+        
         {
             title: "7. Retention of Information",
             content: [
-                "We retain your information as long as necessary for business or legal reasons, and securely delete it when no longer needed."
+                "We retain your information as long as it is necessary for business or legal reasons, and securely delete it when it is no longer needed."
             ]
         },
+        
         {
-            title: "8. Third-Party Links",
+            title: "8. Changes to This Privacy Policy",
             content: [
-                "Our platform may link to third-party websites. We are not responsible for their privacy practices."
+                "We reserve the right to update or modify this Privacy Policy at any time. Any changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically."
             ]
         },
+        
+       
         {
-            title: "9. Children’s Privacy",
-            content: [
-                "We do not knowingly collect data from children under 18. If we find any, we will delete it."
-            ]
-        },
-        {
-            title: "10. Policy Updates",
-            content: [
-                "We may update this policy periodically. Check this page for any changes."
-            ]
-        },
-        {
-            title: "11. Contact Us",
+            title: "9. Contact Us",
             content: [
                 "If you have any questions, please contact us at:",
-                "• Email: info@QUAloan.com",
+                "• Email: info@120daysfinance",
                 "• Phone: +91 9999999341",
                 "• Address: S-370, Panchsheel Park,New Delhi 110017, India",
                

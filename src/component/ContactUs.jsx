@@ -256,7 +256,7 @@ const ContactUs = () => {
         }}
       >
         <Typography variant="h6">Email</Typography>
-        <Typography>info@QUAloan.com</Typography>
+        <Typography>info@120daysfinance.com</Typography>
       </Box>
     </Grid>
 

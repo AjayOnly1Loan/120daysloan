@@ -33,7 +33,7 @@ const slideInLeft = keyframes`
 const LoanCalculator = () => {
     const [loanAmount, setLoanAmount] = useState(50000);
     const [loanTenure, setLoanTenure] = useState(1);
-    const [interestRate, setInterestRate] = useState(0.5);
+    const [interestRate, setInterestRate] = useState(5);
     const [totalAmount, setTotalAmount] = useState(510000);
     const [dailyPayment, setDailyPayment] = useState(0);
     const [showDialog, setShowDialog] = useState(false); // State for dialog visibility
@@ -110,167 +110,162 @@ const LoanCalculator = () => {
                                 }}
                                 ref={calculatorRef}
                             >
-                            <Box sx={{ width: { xs: '100%', sm: '50%' }, padding: { xs: 3, sm: 5 } }}>
-                                <Typography variant="h6" sx={{ marginBottom: 1, textAlign: 'left' }}>
-                                    Loan Amount (₹)
-                                </Typography>
-                                <TextField
-                                    type="number"
-                                    value={loanAmount}
-                                    onChange={(e) => {
-                                        const value = Number(e.target.value);
-                                        if (value >= 50000 && value <= 500000) {
-                                            setLoanAmount(value);  // Update only if within the valid range
-                                        }
-                                    }}
-                                    variant="outlined"
-                                    fullWidth
-                                    sx={{
-                                        marginBottom: 2, // margin at the bottom
-                                        background: 'transparent',
-                                        borderRadius: '16px', // Rounded border
-                                        '& .MuiOutlinedInput-root': {
-                                            borderRadius: '16px', // Ensure the border radius applies to the input field
-                                        },
-                                        '& .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)', // Default border color
-                                        },
-                                        '&:hover .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: '#1976d2', // Border color on hover
-                                        },
-                                    }}
-                                />
-                                <Slider
-                                    value={loanAmount}
-                                    min={50000}
-                                    max={500000}
-                                    onChange={handleLoanAmountChange}
-                                    valueLabelDisplay="auto"
-                                    marks={[{ value: 50000, label: '50K' }, { value: 500000, label: '500K' }]}
-                                    sx={{
-                                        color: 'black',
-                                        height: 8,
-                                        marginBottom: 2,
-                                        '& .MuiSlider-markLabel[data-index="0"]': {
-                                            transform: 'translateX(5%)', // Shift min label to the right
-                                        },
-                                        '& .MuiSlider-markLabel[data-index="1"]': {
-                                            transform: 'translateX(-90%)', // Shift max label to the left
-                                        },
-                                    }}
-                                />
-                                <Typography variant="h6" sx={{ marginBottom: 1, textAlign: 'left' }}>
-                                    Loan Tenure (Days)
-                                </Typography>
-                                <TextField
-                                    type="number"
-                                    value={loanTenure}
-                                    onChange={(e) => {
-                                        const value = Number(e.target.value);
-                                        if (value >= 1 && value <= 120) {
-                                            setLoanTenure(value);  // Update only if within the valid range
-                                        }
-                                    }}
-                                    variant="outlined"
-                                    fullWidth
-                                    sx={{
-                                        marginBottom: 2, // margin at the bottom
-                                        background: 'transparent',
-                                        borderRadius: '16px', // Rounded border
-                                        '& .MuiOutlinedInput-root': {
-                                            borderRadius: '16px', // Ensure the border radius applies to the input field
-                                        },
-                                        '& .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)', // Default border color
-                                        },
-                                        '&:hover .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: '#1976d2', // Border color on hover
-                                        },
-                                    }}
-                                />
-                                <Slider
-                                    value={loanTenure}
-                                    min={1}
-                                    max={120}
-                                    onChange={handleLoanTenureChange}
-                                    valueLabelDisplay="auto"
-                                    marks={[{ value: 1, label: '1' }, { value: 120, label: '120' }]}
-                                    sx={{
-                                        color: 'black',
-                                        height: 8,
-                                        marginBottom: 2,
-                                        '& .MuiSlider-markLabel[data-index="0"]': {
-                                            transform: 'translateX(5%)', // Shift min label to the right
-                                        },
-                                        '& .MuiSlider-markLabel[data-index="1"]': {
-                                            transform: 'translateX(-90%)', // Shift max label to the left
-                                        },
-                                    }}
-                                />
-                                <Typography variant="h6" sx={{ marginBottom: 1, textAlign: 'left' }}>
-                                    Interest Rate (%)
-                                </Typography>
-                                <TextField
-                                    type="number"
-                                    value={interestRate}
-                                    onChange={(e) => {
-                                        const value = Number(e.target.value);
-                                        if (value >= 0.5 && value <= 2.75) {
-                                            setInterestRate(value);  // Update only if within the valid range
-                                        }
-                                    }}
-                                    variant="outlined"
-                                    fullWidth
-                                    sx={{
-                                        marginBottom: 1, // margin at the bottom
-                                        background: 'transparent',
-                                        borderRadius: '16px', // Rounded border
-                                        '& .MuiOutlinedInput-root': {
-                                            borderRadius: '16px', // Ensure the border radius applies to the input field
-                                        },
-                                        '& .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: 'rgba(0, 0, 0, 0.23)', // Default border color
-                                        },
-                                        '&:hover .MuiOutlinedInput-notchedOutline': {
-                                            borderColor: '#1976d2', // Border color on hover
-                                        },
-                                    }}
-                                />
-                                <Slider
-                                    value={interestRate}
-                                    min={0.5}
-                                    max={2.75}
-                                    step={0.1}
-                                    onChange={handleInterestRateChange}
-                                    valueLabelDisplay="auto"
-                                    marks={[{ value: 0.5, label: '0.5%' }, { value: 2.75, label: '2.75%' }]}
-                                    sx={{
-                                        color: 'black',
-                                        height: 8,
-                                        marginBottom: 2,
-                                        '& .MuiSlider-markLabel[data-index="0"]': {
-                                            transform: 'translateX(5%)', // Shift min label to the right
-                                        },
-                                        '& .MuiSlider-markLabel[data-index="1"]': {
-                                            transform: 'translateX(-90%)', // Shift max label to the left
-                                        },
-                                    }}
-                                />
-                                <Button
-                                    component={Link}
-                                    href="/apply-now"
-                                    variant="contained"
-                                    sx={{
-                                        marginTop: 2,
-                                        backgroundColor: '#4D0F4A',
-                                        borderRadius: '16px',
-                                        paddingY: 2,
-                                        paddingX:{xs:14,md:24},
-                                    }}
-                                >
-                                    <Typography>₹{totalAmount}</Typography>
-                                </Button>
-                            </Box>
+<Box sx={{ width: { xs: '100%', sm: '50%' }, padding: { xs: 3, sm: 5 } }}>
+    <Typography variant="h6" sx={{ marginBottom: 1, textAlign: 'left' }}>
+        Loan Amount (₹)
+    </Typography>
+    <TextField
+        type="number"
+        value={loanAmount || ''}
+        onChange={(e) => {
+            const value = Number(e.target.value);
+            if (value <= 500000) {
+                setLoanAmount(value);  // Update only if within the valid range
+            } else if (value > 500000) {
+                setLoanAmount(500000); // If above max, set it to max
+            } else if (value < 50000) {
+                setLoanAmount(50000); // If below min, set it to min
+            } else {
+                setLoanAmount(value); // Allow any value within the valid range
+            }
+        }}
+        variant="outlined"
+        fullWidth
+        sx={{
+            marginBottom: 2, // margin at the bottom
+            background: 'transparent',
+            borderRadius: '16px', // Rounded border
+            '& .MuiOutlinedInput-root': {
+                borderRadius: '16px', // Ensure the border radius applies to the input field
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(0, 0, 0, 0.23)', // Default border color
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#1976d2', // Border color on hover
+            },
+        }}
+    />
+    <Slider
+        value={loanAmount}
+        min={50000}
+        max={500000}
+        onChange={(_, newValue) => setLoanAmount(newValue)} // Update value when slider moves
+        valueLabelDisplay="auto"
+        marks={[{ value: 50000, label: '50K' }, { value: 500000, label: '500K' }]}
+        sx={{
+            color: 'black',
+            height: 8,
+            marginBottom: 2,
+            '& .MuiSlider-markLabel[data-index="0"]': {
+                transform: 'translateX(5%)', // Shift min label to the right
+            },
+            '& .MuiSlider-markLabel[data-index="1"]': {
+                transform: 'translateX(-90%)', // Shift max label to the left
+            },
+        }}
+    />
+
+
+    <Typography variant="h6" sx={{ marginBottom: 1, textAlign: 'left' }}>
+        Loan Tenure (Months)
+    </Typography>
+    <TextField
+        type="number"
+        value={loanTenure}
+        onChange={(e) => {
+            const value = Number(e.target.value);
+            if (value >= 1 && value <= 4) {
+                setLoanTenure(value);  // Update only if within the valid range (1 to 4 months)
+            }
+        }}
+        variant="outlined"
+        fullWidth
+        sx={{
+            marginBottom: 2, // margin at the bottom
+            background: 'transparent',
+            borderRadius: '16px', // Rounded border
+            '& .MuiOutlinedInput-root': {
+                borderRadius: '16px', // Ensure the border radius applies to the input field
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(0, 0, 0, 0.23)', // Default border color
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#1976d2', // Border color on hover
+            },
+        }}
+    />
+    <Slider
+        value={loanTenure}
+        min={1}
+        max={4}
+        onChange={handleLoanTenureChange}
+        valueLabelDisplay="auto"
+        marks={[{ value: 1, label: '1 Month' }, { value: 4, label: '4 Months' }]}
+        sx={{
+            color: 'black',
+            height: 8,
+            marginBottom: 2,
+            '& .MuiSlider-markLabel[data-index="0"]': {
+                transform: 'translateX(5%)', // Shift min label to the right
+            },
+            '& .MuiSlider-markLabel[data-index="1"]': {
+                transform: 'translateX(-90%)', // Shift max label to the left
+            },
+        }}
+    />
+    <Typography variant="h6" sx={{ marginBottom: 1, textAlign: 'left' }}>
+        Interest Rate (5% per month)
+    </Typography>
+    <TextField
+        type="number"
+        value={interestRate}
+        disabled
+        variant="outlined"
+        fullWidth
+        sx={{
+            marginBottom: 1, // margin at the bottom
+            background: 'transparent',
+            borderRadius: '16px', // Rounded border
+            '& .MuiOutlinedInput-root': {
+                borderRadius: '16px', // Ensure the border radius applies to the input field
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'rgba(0, 0, 0, 0.23)', // Default border color
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#1976d2', // Border color on hover
+            },
+        }}
+    />
+    <Slider
+        value={interestRate}
+        min={5}
+        max={5}
+        disabled
+        valueLabelDisplay="auto"
+        sx={{
+            color: 'black',
+            height: 8,
+            marginBottom: 2,
+        }}
+    />
+    <Button
+        component={Link}
+        href="/apply-now"
+        variant="contained"
+        sx={{
+            marginTop: 2,
+            backgroundColor: '#4D0F4A',
+            borderRadius: '16px',
+            paddingY: 2,
+            paddingX: { xs: 14, md: 24 },
+        }}
+    >
+        <Typography>₹{totalAmount}</Typography>
+    </Button>
+</Box>
 
                              <Box sx={{ width: { xs: '100%', sm: '80%', md: '50%' }, padding: { xs: 2, sm: 4, md: 5 } }}>
                             
@@ -289,7 +284,7 @@ const LoanCalculator = () => {
                                 Detailed information to help you understand your financial commitment.
                             </Typography>
                             <Typography sx={{ marginTop: 3, fontSize: '1.5rem', fontWeight: 'bold' }}>
-                                You have to pay    ffffffffff
+                                You have to pay    
                             </Typography>
 
                             <Typography sx={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
@@ -342,7 +337,7 @@ const LoanCalculator = () => {
                                                 }}
                                             >
                                                 <Typography variant="subtitle1">Loan Tenure:</Typography>
-                                                <Typography variant="h6">{loanTenure} days</Typography>
+                                                <Typography variant="h6">{loanTenure} month</Typography>
                                             </TableCell>
                                         </TableRow>
                                     </TableBody>

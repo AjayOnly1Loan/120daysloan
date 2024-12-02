@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button ,Box} from '@mui/material';
 
-import logo from '../assets/image/120 Days Logo.webp'; // Adjust the path based on your structure
+import logo from '../assets/image/120 Days Logo     Hindi.webp'; // Adjust the path based on your structure
 import sidebarBg from '../assets/image/Vector.png'; // Your SVG background
 
 const Header = () => {

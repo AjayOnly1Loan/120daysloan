@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Container, Paper, Divider } from '@mui/material';
 import { Fade } from '@mui/material';
-import ApplyNowImage from '../assets/image/frontend.webp'; // Replace with your image path
+import ApplyNowImage from '../assets/image/Terms & Condition.jpg'; // Replace with your image path
 
 const TermsAndConditions = () => {
     return (
@@ -45,168 +45,222 @@ const TermsAndConditions = () => {
 
                         <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                                Welcome to QUAloan.com. By accessing and using this website or applying for any of our loan products, you agree to comply with the terms and conditions outlined here.
-                            </Typography>
-                            <Typography>
-                                These Terms and Conditions constitute a legal agreement between you and Naman Finlease Private Limited (an NBFC registered with RBI for lending purposes), which governs your use of our website and services. Please read these terms carefully. If you do not agree with these terms, you should refrain from using this website or applying for loans through QUAloan.com.
-                            </Typography>
+                            Welcome to 120daysfinance.com. By accessing or using our services, you agree to comply with and be bound by these Terms and Conditions. These Terms constitute a legal agreement between you (the "Borrower" or "User") and Naman Finlease Private Limited ("Company," "we," "our," or "us"). If you do not agree to these Terms, please refrain from using our services.                            </Typography>
+                            {/* <Typography>
+                                These Terms and Conditions constitute a legal agreement between you and Naman Finlease Private Limited (an NBFC registered with RBI for lending purposes), which governs your use of our website and services. Please read these terms carefully. If you do not agree with these terms, you should refrain from using this website or applying for loans through 120daysfinance.
+                            </Typography> */}
                         </Box>
                         <Divider sx={{ my: 2 }} />
 
                         <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                1. Introduction
-                            </Typography>
-                            <Typography>
-                                QUAloan.com provides personal loans to salaried individuals under the regulatory oversight of Naman Finlease Private Limited, an NBFC registered with the RBI. Our primary goal is to provide seamless, easy, and transparent financial solutions to help individuals manage their personal finances.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                        <Typography variant="h6" gutterBottom sx={{  fontWeight: 'bold' }}>
+                            1. Definitions
+                        </Typography>
+                        <Typography>
+                            In these Terms, unless the context requires otherwise:
+                        </Typography>
+                        <ul>
+                            <li>"Borrower" refers to any individual, small vendor, or SME applying for a loan.</li>
+                            <li>"Loan" refers to the financial product offered by the Company, including principal, interest, and any applicable fees.</li>
+                            <li>"Repayment Schedule" refers to the agreed timeline for loan repayment.</li>
+                            <li>"Collateral" refers to any asset pledged by the Borrower to secure the loan, if applicable.</li>
+                            <li>"Default" refers to the failure of the Borrower to repay the loan as per the agreed terms.</li>
+                        </ul>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                2. Eligibility Criteria
-                            </Typography>
-                            <Typography>
-                                To apply for a personal loan with QUAloan.com, you must meet the following eligibility requirements:
-                            </Typography>
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            2. Eligibility Criteria
+                        </Typography>
+                        <Typography>
+                            To apply for a loan, you must:
+                        </Typography>
+                        <ul>
+                            <li>Be a citizen or a legal resident of India with a valid PAN and Aadhaar card.</li>
+                            <li>Be at least 21 years old and not older than 60 years at the time of loan maturity.</li>
+                            <li>Own or operate a registered small business or SME with a valid business registration certificate.</li>
+                            <li>Maintain an active bank account in the name of the business.</li>
+                            <li>Provide proof of income and business activity for the past 12 months.</li>
+                        </ul>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
+
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
+                        <Typography variant="h6" gutterBottom sx={{  fontWeight: 'bold' }}>
+                            3. Loan Terms
+                        </Typography>
+                        <Typography>
                             <ul>
-                                <li>Be at least 21 years old and not older than 60 at the time of loan application.</li>
-                                <li>Be a salaried individual with steady income from a recognized organization.</li>
-                                <li>Meet the minimum monthly income criteria defined by Naman Finlease Private Limited.</li>
-                                <li>Be a resident of India with a satisfactory credit score and financial history.</li>
+                                <li><strong>Loan Amount:</strong> ₹50,000 to ₹5,00,000.</li>
+                                <li><strong>Tenure:</strong> Fixed at 120 days.</li>
+                                <li><strong>Interest Rate:</strong> Determined based on creditworthiness, business performance, and prevailing market conditions.</li>
+                                <li><strong>Processing Fee:</strong> A non-refundable processing fee will be deducted from the loan amount at the time of disbursement.</li>
+                                <li><strong>Prepayment:</strong> Borrowers may prepay the loan in full or in part before the due date, subject to applicable prepayment charges.</li>
                             </ul>
-                        </Box>
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
+
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
+                        <Typography variant="h6" gutterBottom sx={{  fontWeight: 'bold' }}>
+                            4. Loan Application Process
+                        </Typography>
+                        <Typography>
+                            <ul>
+                                <li><strong>Online Application:</strong> Submit your loan application through 120daysfinance.com by providing accurate and up-to-date information.</li>
+                                <li><strong>Document Submission:</strong> Upload the required documents, including:
+                                    <ul>
+                                        <li>PAN Card and Aadhaar Card (for identity verification).</li>
+                                        <li>Business registration certificate or GST registration.</li>
+                                        <li>Last 6 months' bank statements.</li>
+                                        <li>Proof of business address.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Credit Assessment:</strong> We will assess your creditworthiness based on your financial history, business performance, and other relevant factors.</li>
+                                <li><strong>Approval & Agreement:</strong> Upon approval, you will receive the loan agreement for acceptance.</li>
+                            </ul>
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
+
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
+                        <Typography variant="h6" gutterBottom sx={{  fontWeight: 'bold' }}>
+                            5. Repayment and Default
+                        </Typography>
+                        <Typography>
+                            Loan repayments must be made as per the agreed repayment schedule. Failure to repay may result in:
+                            <ul>
+                                <li>Late payment fees.</li>
+                                <li>Reporting to credit bureaus, affecting your credit score.</li>
+                                <li>Legal action to recover outstanding amounts.</li>
+                            </ul>
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
+
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
+                        <Typography variant="h6" gutterBottom sx={{  fontWeight: 'bold' }}>
+                            6. Data Privacy and Security
+                        </Typography>
+                        <Typography>
+                            We take your privacy seriously. Your personal and financial information will be securely handled and used solely for loan processing and communication purposes, in compliance with data protection laws.
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
+
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            7. Amendments to Terms
+                        </Typography>
+                        <Typography>
+                            We reserve the right to modify or update these Terms and Conditions at any time. Updated terms will be posted on the website. It is your responsibility to stay informed.
+                        </Typography>
+                    </Box>
+
                         <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                3. Loan Application Process
-                            </Typography>
-                            <Typography>
-                                The loan application process at QUAloan.com includes registration, filling out the application form, document submission, and credit assessment. Approval of loans is at the sole discretion of Naman Finlease Private Limited.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                        <Box>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            8. Fees and Charges
+                        </Typography>
+                        <Typography>
+                            The following fees and charges may apply:
+                            <ul>
+                                <li><b>Processing Fee:</b> 5% of the loan amount.</li>
+                                <li><b>Prepayment Charges:</b> No prepayment charges.</li>
+                                <li><b>Late Payment Penalty:</b> Penal interest will be charged as per policy.</li>
+                                <li><b>Legal and Recovery Charges:</b> As applicable in case of default.</li>
+                            </ul>
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                4. Loan Terms
-                            </Typography>
-                            <Typography>
-                                Loan amounts, interest rates, and repayment schedules are determined based on the applicant’s profile. The interest rate will remain fixed for the entire loan tenure.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                    {/* Section 9: Borrower's Obligations */}
+                    <Box>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            9. Borrower’s Obligations
+                        </Typography>
+                        <Typography>
+                            The Borrower agrees to:
+                            <ul>
+                                <li>Use the loan amount strictly for business purposes as declared during the application process.</li>
+                                <li>Provide accurate and truthful information during the application and throughout the loan tenure.</li>
+                                <li>Notify the Company of any significant changes in business operations, financial status, or contact information.</li>
+                            </ul>
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                5. Fees and Charges
-                            </Typography>
-                            <Typography>
-                                Applicable fees may include a processing fee, late payment charges, prepayment penalties, and other fees as outlined in the loan agreement.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                    {/* Section 10: Privacy and Data Security */}
+                    <Box>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            10. Privacy and Data Security
+                        </Typography>
+                        <Typography>
+                            We are committed to safeguarding your personal and business information. Please review our Privacy Policy for details on data collection, usage, and storage.
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                6. Loan Disbursement
-                            </Typography>
-                            <Typography>
-                                Upon approval of your loan application and completion of required formalities, the loan amount will be credited directly to your bank account. Disbursement times may vary depending on internal processes, but QUAloan.com strives to ensure quick and efficient transfer of funds.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                    {/* Section 11: Limitation of Liability */}
+                    <Box>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            11. Limitation of Liability
+                        </Typography>
+                        <Typography>
+                            The Company shall not be liable for:
+                            <ul>
+                                <li>Any indirect, incidental, or consequential damages arising from the use of our services.</li>
+                                <li>Losses resulting from delays in loan processing or disbursement due to factors beyond our control.</li>
+                                <li>Decisions made based on inaccurate or incomplete information provided by the Borrower.</li>
+                            </ul>
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                7. Loan Repayment
-                            </Typography>
-                            <Typography>
-                                Repayment must be made as per the terms set forth in your loan agreement. Loan repayments will be deducted automatically via NACH mandate or through other digital methods such as UPI, Payment Gateway, etc. Early repayment is allowed; however, prepayment penalties may apply.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                    {/* Section 12: Termination of Services */}
+                    <Box>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            12. Termination of Services
+                        </Typography>
+                        <Typography>
+                            The Company reserves the right to terminate or suspend your access to our services at any time without prior notice if:
+                            <ul>
+                                <li>You violate these Terms.</li>
+                                <li>You provide false or misleading information.</li>
+                                <li>You engage in fraudulent or unlawful activities.</li>
+                            </ul>
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                8. Default and Consequences
-                            </Typography>
-                            <Typography>
-                                Failure to repay the loan on time may result in additional late payment fees, negative reporting to credit bureaus, and legal action to recover outstanding amounts.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                    {/* Section 13: Governing Law and Jurisdiction */}
+                    <Box>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            13. Governing Law and Jurisdiction
+                        </Typography>
+                        <Typography>
+                            These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts in New Delhi.
+                        </Typography>
+                    </Box>
+                    <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                9. Cancellation of Loan
-                            </Typography>
-                            <Typography>
-                                You may cancel your loan application at any stage before disbursement. After disbursement, cancellation is not possible. However, prepayment is allowed subject to terms outlined in the agreement.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
+                    {/* Section 14: Contact Us */}
+                    <Box>
+                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                            14. Contact Us
+                        </Typography>
+                        <Typography>
+                            For any inquiries, assistance, or complaints, please contact us:
+                            <ul>
+                                <li><b>Nodal Officer:</b> S-370, Panchsheel Park, New Delhi, 110017.</li>
+                                <li><b>Email:</b> <a href="mailto:info@120daysfinance.com">info@120daysfinance.com</a></li>
+                                <li><b>Phone:</b> 9999999341</li>
+                            </ul>
+                        </Typography>
+                    </Box>
 
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                10. Data Privacy and Security
-                            </Typography>
-                            <Typography>
-                                We take your privacy seriously. All personal and financial information will be securely handled in compliance with data protection laws. We collect and use your data for loan processing and communication only.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
-
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out',color:'white', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                11. User Responsibilities
-                            </Typography>
-                            <Typography>
-                                You agree to provide accurate information during registration and the loan application process. Misrepresentation may result in denial of service or legal action.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
-
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                12. Amendments to Terms
-                            </Typography>
-                            <Typography>
-                                We reserve the right to modify or update these terms and conditions at any time. The updated terms will be posted on the website, and it is your responsibility to stay informed.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
-
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                13. Dispute Resolution
-                            </Typography>
-                            <Typography>
-                                In case of any disputes, we will attempt to resolve them amicably. If not, the dispute shall be resolved under the jurisdiction of the courts in Delhi, India.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
-
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                14. Limitation of Liability
-                            </Typography>
-                            <Typography>
-                                Naman Finlease Private Limited shall not be liable for any loss, damage, or inconvenience arising out of the use of this website or services, except as expressly stated in the loan agreement.
-                            </Typography>
-                        </Box>
-                        <Divider sx={{ my: 2 }} />
-
-                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
-                            <Typography variant="h6" gutterBottom sx={{ color:'white', fontWeight: 'bold' }}>
-                                15. Governing Law
-                            </Typography>
-                            <Typography>
-                                These Terms and Conditions shall be governed by and construed in accordance with the laws of India.
-                            </Typography>
-                        </Box>
                     </Paper>
                 </Container>
             </Box>

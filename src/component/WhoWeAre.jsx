@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 
 const WhoWeAre = () => {
-  const content = `Welcome to 120daysfinance.com, a pioneering financial partner for small businesses across India. Our mission is simple: to empower entrepreneurs with quick, hassle-free loans designed to meet their urgent capital needs. With a streamlined application process, we specialize in providing 100-day loans, ensuring businesses have the working capital to grow and thrive.`;
+  const content = `Welcome to 120daysfinance.com, a pioneering financial partner for small businesses across India. Our mission is simple: to empower entrepreneurs with quick, hassle-free loans designed to meet their urgent capital needs. With a streamlined application process, we specialize in providing 120-days loans, ensuring businesses have the working capital to grow and thrive.`;
 
   const words = content.split(" ");
   const [isVisible, setIsVisible] = useState(false);

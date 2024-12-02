@@ -185,15 +185,15 @@ Being a one-stop solution for your financial needs, we're here to make your jour
       Resources
     </Typography>
     <Typography sx={{ color: 'gray', fontSize: '20px', marginBottom: '10px' }}>
-      Address: 123 Finance Street,
+      Address: S-370, Panchsheel Park, 
       <br />
-      Business City, India
+      New Delhi, 110017, India
     </Typography>
     <Typography sx={{ color: 'gray', fontSize: '20px', marginBottom: '10px' }}>
-      Phone: +91-9876543210
+      Phone: +91-9999999341
     </Typography>
     <Typography sx={{ color: 'gray', fontSize: '20px' }}>
-      Email: support@finance.com
+      Email:info@120daysfinance.com
     </Typography>
   </Box>
 

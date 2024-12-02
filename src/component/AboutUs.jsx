@@ -5,7 +5,7 @@ import { Typography, Grid, Box ,Container,Button,Link,Fade,
 import VisionImage from '../assets/image/image.png'; // Import your vision image here
 import MissionImage from '../assets/image/image1.png'; // Import your mission image here
 import aboutImage from '../assets/image/photo requested 1 aman .webp'; // Correct image path for about us
-import contentImage from "../assets/image/Frame 535.png"; // Correct image path
+import contentImage from "../assets/image/Frame 535 (1).png"; // Correct image path
 import { useInView } from 'react-intersection-observer';
 
 

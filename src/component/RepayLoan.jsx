@@ -1,7 +1,7 @@
 import React from 'react';
 import WarningIcon from '@mui/icons-material/Warning'; // Import Warning icon
 import AXIS from '../assets/image/axis (1).png';
-import repayaImage from '../assets/image/aboutus.webp';
+import repayaImage from '../assets/image/Repay (1).jpg';
 import { Grid, Box, Typography, Divider } from '@mui/material';
 
 const RepayLoan = () => {
@@ -306,7 +306,7 @@ const RepayLoan = () => {
     }}
   >
     Please repay your loan and interest amount through the following bank:  
-    <strong>recovery@Salarysathi.com</strong>.
+    <strong>recovery@120daysfinance.com</strong>.
   </Typography>
 </Box>
 
