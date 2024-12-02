@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { keyframes } from '@mui/system';
-import ApplyNowImage from '../assets/image/faqs.jpg'; // Replace with your image path
+import ApplyNowImage from '../assets/image/Faq-Banner-Image (2).jpg'; // Replace with your image path
 
 const FAQs = () => {
     // Animation for lines coming in one by one
@@ -43,13 +43,19 @@ const FAQs = () => {
           mb: 6
         }}
       >
-        {/* Image on the bottom */}
-        <img 
-          src={ApplyNowImage} 
-          alt="Apply Now" 
-          style={{ width: '100%', height: '90vh',marginTop:'0px' ,borderRadius:'30px'}} 
-        />
-        
+       <Box sx={{ height: 'auto', maxHeight: '90vh', overflow: 'hidden', position: 'relative' }}>
+  <img 
+    src={ApplyNowImage} 
+    alt="Apply Now" 
+    style={{ 
+      width: '100%', 
+      height: '90vh',  // This makes the image take up the full height of the box
+      objectFit: 'cover', // Ensures the image covers the container without distortion
+      borderRadius: '30px' 
+    }} 
+  />
+</Box>
+
                 <Typography
                     variant="h3"
                     sx={{

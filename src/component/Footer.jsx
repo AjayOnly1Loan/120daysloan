@@ -1,5 +1,8 @@
 import React from 'react';
 import { Box, Typography, Link, Grid ,Stack} from '@mui/material';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Footer = () => {
   return (
@@ -104,168 +107,135 @@ Being a one-stop solution for your financial needs, we're here to make your jour
             120 DAYS FINANCE
           </Typography>
 
-          {/* Terms, Privacy, and FAQ */}
           <Box
   sx={{
     display: 'flex',
     flexDirection: { xs: 'column', md: 'row' },
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: '10px',
+    gap: { xs: 4, md: 6 },
     marginBottom: '16px',
+    padding: { xs: 2, md: 4 },
   }}
 >
-  {/* Terms, Privacy, and FAQ */}
-  <Box
-    sx={{
-      marginLeft:{xs:0,md:2},
-      marginTop: { xs: 0, md: '-40px' },
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: { xs: 'center', md: 'flex-start' },
-    }}
-  >
-     <Typography
+  {/* Links Section */}
+  <Box sx={{ flex: 1, marginBottom: { xs: 4, md: 0 } }}>
+    <Typography
       sx={{
-        color: 'black',
+        color: '#333', // Same color for title and links
         fontSize: '24px',
-        marginBottom: '6px',
+        marginBottom: '25px',
         textAlign: { xs: 'center', md: 'left' },
+        fontWeight: 'bold', // Same font weight for consistency
       }}
     >
       Links
     </Typography>
-    <Link
-      href="/terms-condition"
-      underline="none"
-      sx={{
-        color: '#333',
-        marginBottom: '6px',
-        fontSize: '20px',
-        textAlign: { xs: 'center', md: 'left' },
-      }}
-    >
-      Terms & Conditions
-    </Link>
-    <Link
-      href="/privacy-policy"
-      underline="none"
-      sx={{
-        color: '#333',
-        marginBottom: '6px',
-        fontSize: '20px',
-        textAlign: { xs: 'center', md: 'left' },
-      }}
-    >
-      Privacy Policy
-    </Link>
-    <Link
-      href="/faq"
-      underline="none"
-      sx={{
-        marginBottom: '6px',
-
-        color: '#333',
-        fontSize: '20px',
-        textAlign: { xs: 'center', md: 'left' },
-      }}
-    >
-      FAQs
-    </Link>
+    {['Terms & Conditions', 'Privacy Policy', 'FAQs'].map((text, index) => {
+      const links = ['/terms-condition', '/privacy-policy', '/faq'];
+      return (
+        <Link
+          key={index}
+          href={links[index]}
+          underline="none"
+          sx={{
+            display: 'block',
+            color: '#333', // Same color for links as the title
+            fontSize: '20px',
+            textAlign: { xs: 'center', md: 'left' },
+            position: 'relative',
+            marginBottom: '8px',
+            '&::before': {
+              content: { xs: 'none', md: '"•"' },
+              position: 'absolute',
+              left: '-12px',
+              color: '#333', // Same color for bullet points
+            },
+          }}
+        >
+          {text}
+        </Link>
+      );
+    })}
   </Box>
 
-  {/* Address and Contact Info */}
-  <Box
-    sx={{
-      marginRight: { xs: 0, md: '70px' },
-      textAlign: { xs: 'center', md: 'left' },
-    }}
-  >
-    <Typography sx={{ color: 'black', fontSize: '24px', marginBottom: '10px' }}>
-      Resources
-    </Typography>
-    <Typography sx={{ color: 'gray', fontSize: '20px', marginBottom: '10px' }}>
-      Address: S-370, Panchsheel Park, 
-      <br />
-      New Delhi, 110017, India
-    </Typography>
-    <Typography sx={{ color: 'gray', fontSize: '20px', marginBottom: '10px' }}>
-      Phone: +91-9999999341
-    </Typography>
-    <Typography sx={{ color: 'gray', fontSize: '20px' }}>
-      Email:info@120daysfinance.com
-    </Typography>
-  </Box>
-
-  {/* Social Networking Links */}
-  <Box
-    sx={{
-      marginRight: { xs: 0, md: '40px' },
-
-      marginTop: { xs: '20px', md: 0 },
-      textAlign: { xs: 'center', md: 'left' },
-      alignItems: { xs: 'center', md: 'flex-start' },
-    }}
-  >
+  {/* Social Links Section */}
+  <Box sx={{ flex: 1, marginBottom: { xs: 4, md: 0 } }}>
     <Typography
       sx={{
-        color: 'black',
+        color: '#333', // Same color for title and links
         fontSize: '24px',
         marginBottom: '10px',
         textAlign: { xs: 'center', md: 'left' },
+        fontWeight: 'bold', // Same font weight for consistency
       }}
     >
       Social Links
     </Typography>
-    <Stack spacing={0}>
-      <Link
-        href="/facebook"
-        underline="none"
-        sx={{
-          color: '#333',
-          fontSize: '20px',
-          textAlign: { xs: 'center', md: 'left' },
-        }}
-      >
-        Facebook
-      </Link>
-      <Link
-        href="/linkedin"
-        underline="none"
-        sx={{
-          color: '#333',
-          fontSize: '20px',
-          textAlign: { xs: 'center', md: 'left' },
-        }}
-      >
-        LinkedIn
-      </Link>
-      <Link
-        href="/twitter"
-        underline="none"
-        sx={{
-          color: '#333',
-          fontSize: '20px',
-          textAlign: { xs: 'center', md: 'left' },
-        }}
-      >
-        Instagram
-      </Link>
-      <Link
-        href="/instagram"
-        underline="none"
-        sx={{
-          color: '#333',
-          fontSize: '20px',
-          textAlign: { xs: 'center', md: 'left' },
-        }}
-      >
-         Twitter
-        
-      </Link>
+    <Stack spacing={1} sx={{ fontSize: '20px', color: '#333' }}>
+      {['Facebook', 'LinkedIn', 'Instagram', 'Twitter'].map((platform, index) => {
+        const socialLinks = ['/facebook', '/linkedin', '/instagram', '/twitter'];
+        return (
+          <Link
+            key={index}
+            href={socialLinks[index]}
+            underline="none"
+            sx={{
+              display: 'block',
+              color: '#333', // Same color for links as the title
+              textAlign: { xs: 'center', md: 'left' },
+              position: 'relative',
+              '&::before': {
+                content: { xs: 'none', md: '"•"' },
+                position: 'absolute',
+                left: '-12px',
+                color: '#333', // Same color for bullet points
+              },
+            }}
+          >
+            {platform}
+          </Link>
+        );
+      })}
+    </Stack>
+  </Box>
+
+  {/* Resources Section */}
+  <Box sx={{ flex: 1 }}>
+    <Typography
+      sx={{
+        color: '#333', // Same color for title and links
+        fontSize: '24px',
+        marginBottom: '20px',
+        textAlign: { xs: 'center', md: 'left' },
+        fontWeight: 'bold', // Same font weight for consistency
+      }}
+    >
+      Resources
+    </Typography>
+    <Stack spacing={2} sx={{ fontSize: '20px', color: 'gray' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <LocationOnIcon sx={{ marginRight: 1 }} />
+        <Typography>
+          S-370, Panchsheel Park,
+          <br />
+          New Delhi, 110017, India
+        </Typography>
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <PhoneIcon sx={{ marginRight: 1 }} />
+        <Typography>+91-9999999341</Typography>
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <EmailIcon sx={{ marginRight: 1 }} />
+        <Typography>info@120daysfinance.com</Typography>
+      </Box>
     </Stack>
   </Box>
 </Box>
+
+
+
 
         </Grid>
       </Grid>

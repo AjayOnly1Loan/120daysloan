@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Box, Typography, Container, Grid, InputAdornment, Checkbox, FormControlLabel } from '@mui/material';
 import { Person, Email, Phone, Business, CurrencyRupee, AccountBalance, LocationCity, PinDrop, Map } from '@mui/icons-material';
 import Swal from 'sweetalert2'; // Import SweetAlert2
-import ApplyNowImage from '../assets/image/frontend.webp'; // Replace with your image path
+import ApplyNowImage from '../assets/image/Apply-Now-Banner-Image.jpg'; // Replace with your image path
 
 const ApplyNow = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -44,7 +44,7 @@ const ApplyNow = () => {
         <img 
           src={ApplyNowImage} 
           alt="Apply Now" 
-          style={{ width: '100%', height: '30%',marginTop:'0px' ,borderRadius:'30px'}} 
+          style={{ width: '100%', height: '90vh',marginTop:'0px' ,borderRadius:'30px'}} 
         />
         
       </Box>

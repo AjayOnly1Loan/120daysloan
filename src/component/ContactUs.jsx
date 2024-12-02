@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField, Button, Grid, Typography, Box } from '@mui/material';
 import Swal from 'sweetalert2'; // Import SweetAlert
-import aboutImage from '../assets/image/frontend.webp';
+import aboutImage from '../assets/image/Contact-Us-Banner-Image (1) (1).jpg';
 
 const ContactUs = () => {
   const handleSubmit = (event) => {
