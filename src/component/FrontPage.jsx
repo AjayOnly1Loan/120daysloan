@@ -39,7 +39,7 @@ const FrontPage = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: { xs: "50vh", md: "100vh" },
+        minHeight: { xs: "30vh", md: "100vh" },
         padding: "30px",
         background: "linear-gradient(to bottom, black, #4D0F4A, #140514)",
         border: "none",

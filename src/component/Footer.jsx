@@ -7,7 +7,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Facebook, YouTube, Instagram, LinkedIn,Twitter } from "@mui/icons-material";
-import Logo from '../assets/image/120 Days Logo     Hindi.webp'; // Adjust the path based on your structure
+import Logo from '../assets/image/120 Days Logo     Hindi (1).webp'; // Adjust the path based on your structure
 
 const Footer = () => {
   return (
