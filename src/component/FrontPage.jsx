@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import backgroundImage from "../assets/image/Home-Banner.jpg";
+import backgroundImage from "../assets/image/Home.jpg";
 
 const FrontPage = () => {
   const theme = useTheme();
@@ -44,9 +44,9 @@ const FrontPage = () => {
         background: "linear-gradient(to bottom, black, #4D0F4A, #140514)",
         border: "none",
         height: {
-          xs: "50vh",
+          xs: "20vh",
           sm: "80vh",
-          md: "110vh",
+          md: "100vh",
         },
         display: "flex",
         flexDirection: "column",

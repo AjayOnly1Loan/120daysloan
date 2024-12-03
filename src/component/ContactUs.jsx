@@ -54,7 +54,7 @@ const ContactUs = () => {
       <Box
   component="form"
   onSubmit={handleSubmit}
-  sx={{
+  sx={{marginTop:'80px',
     background: 'transparent',
     padding: '10px',
     borderRadius: '20px',
@@ -221,7 +221,7 @@ const ContactUs = () => {
           borderRadius: '15px',
           backgroundColor: 'white',
           color: 'black',
-          '&:hover': { backgroundColor: 'orange' },
+          '&:hover': { backgroundColor: 'gray' },
         }}
       >
         Submit

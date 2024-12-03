@@ -59,6 +59,7 @@ const FAQs = () => {
                 <Typography
                     variant="h3"
                     sx={{
+                        marginTop:'70px',
                         textAlign: 'center',
                         fontWeight: 'bold',
                         color: 'white',

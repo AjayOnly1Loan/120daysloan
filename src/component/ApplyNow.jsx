@@ -746,7 +746,7 @@ const ApplyNow = () => {
               color: 'black', 
               fontWeight:'bold',
               borderRadius:'30px',
-              '&:hover': { backgroundColor: '#216daf' },
+              '&:hover': { backgroundColor: 'gray' },
               fontSize: '0.75rem', // Smaller font size for the button
               padding: '8px ', // Smaller padding
             }}
