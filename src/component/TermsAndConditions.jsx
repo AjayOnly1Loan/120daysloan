@@ -35,6 +35,7 @@ const TermsAndConditions = () => {
                                 variant="h3" 
                                 gutterBottom 
                                 sx={{    
+                                    marginBottom:'30px',
                                     color: 'white', 
                                     fontWeight: 'bold', 
                                     fontSize: '36px', 

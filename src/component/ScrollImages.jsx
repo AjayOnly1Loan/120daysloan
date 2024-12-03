@@ -114,13 +114,12 @@ const useStyles = makeStyles(() => ({
   imageContainer: {
     borderRadius: '10px',
     width: '100%',
-    height: '800px', // Adjust as needed for large screens
+    height: '600px', // Adjust as needed for large screens
     position: 'relative',
   },
   image: {
     width: '100%',
     height: '100%',
-    objectFit: 'cover',
   },
   textBox: {
     position: 'absolute',
@@ -199,7 +198,7 @@ const ScrollImages = () => {
   return (
     <Box className={classes.container}>
       <Box className={classes.outerBox}>
-        <Typography className={classes.title} >
+        <Typography sx={{fontSize:'50px'}} >
           Eligible People  
         </Typography>
         <Box className={classes.middleBox}>

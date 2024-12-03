@@ -171,14 +171,21 @@ const LoanCalculator = () => {
         Loan Tenure (Months)
     </Typography>
     <TextField
-        type="number"
-        value={loanTenure}
-        onChange={(e) => {
-            const value = Number(e.target.value);
-            if (value >= 1 && value <= 4) {
-                setLoanTenure(value);  // Update only if within the valid range (1 to 4 months)
-            }
-        }}
+
+type="number"
+value={loanTenure || ''}
+onChange={(e) => {
+    const value = Number(e.target.value);
+    if (value <= 4) {
+        setLoanTenure(value);  // Update only if within the valid range (1 to 4 months)
+    } else if (value > 1) {
+        setLoanTenure(1); // If above max, set it to max
+    } else if (value < 4) {
+        setLoanAmount(4); // If below min, set it to min
+    } else {
+        setLoanTenure(value); // Allow any value within the valid range
+    }
+}}
         variant="outlined"
         fullWidth
         sx={{

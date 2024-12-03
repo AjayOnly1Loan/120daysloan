@@ -147,9 +147,10 @@ const PrivacyPolicy = () => {
                                 variant="h3" 
                                 gutterBottom 
                                 sx={{ 
+                                    marginTop:{xs:'40px',md:'90px'},
                                     color: 'white', 
                                     fontWeight: 'bold', 
-                                    fontSize: '2.8rem', 
+                                    fontSize:{xs:'2rem',md:'2.8rem'} , 
                                     letterSpacing: '0.05em',
                                     transition: 'transform 0.3s ease-in-out',
                                     '&:hover': { transform: 'scale(1.05)' }
@@ -161,7 +162,7 @@ const PrivacyPolicy = () => {
                     </Box>
 
                     {/* Policy Content */}
-                    <Paper elevation={3} sx={{ color: 'white', borderRadius: '8px', overflow: 'hidden' ,  backgroundColor: 'transparent',  padding:{xs:1,md:8}}}>
+                    <Paper elevation={3} sx={{ color: 'white', borderRadius: '8px', overflow: 'hidden' ,marginTop:{xs:0,md:'-30px'},marginBottom:'-20px',  backgroundColor: 'transparent',  padding:{xs:1,md:8}}}>
                     {sections.map((section, sectionIndex) => (
                             <div key={sectionIndex}>
                                 <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>

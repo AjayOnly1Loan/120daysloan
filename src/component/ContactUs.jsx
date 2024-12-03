@@ -319,7 +319,7 @@ const ContactUs = () => {
       {/* Google Map */}
       <Box
         component="iframe"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.246459582324!2d-122.08574968468185!3d37.42206527982659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5c44d6b41d3%3A0x30a9d6a89a2384e!2sGoogleplex!5e0!3m2!1sen!2sus!4v1614693744843!5m2!1sen!2sus"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14003.909599614117!2d77.2116778697754!3d28.54194914193025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3b58f859605%3A0x31390d03b89ecdc3!2sS-370%2C%20Panchsheel%20Park%2C%20New%20Delhi%2C%20110017%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
         sx={{
           width: '100%',
           height: '400px',

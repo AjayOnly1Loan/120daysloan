@@ -82,126 +82,92 @@ const SortFAQ = () => {
                 <Paper elevation={0} sx={{ overflow: 'hidden', backgroundColor: 'transparent' }}>
                     <div>
                         {faqItems.map((faq, index) => (
-                            <React.Fragment key={index}>
-                                <Accordion
+                            <Accordion
+                                key={index}
+                                sx={{
+                                    backgroundColor: 'transparent',
+                                    opacity: isVisible ? 1 : 0,
+                                }}
+                            >
+                                <AccordionSummary
+                                    expandIcon={
+                                        <ExpandMoreIcon
+                                            sx={{
+                                                color: 'white',
+                                                transition: 'color 0.3s ease',
+                                                fontSize: '2.5rem', // Adjust this value to increase the size
+                                                '.Mui-expanded &': {
+                                                    color: 'white',
+                                                },
+                                                '&:hover': {
+                                                    color: 'white',
+                                                },
+                                            }}
+                                        />
+                                    }
+                                    aria-controls={`faq${index}-content`}
+                                    id={`faq${index}-header`}
                                     sx={{
                                         backgroundColor: 'transparent',
-                                        opacity: isVisible ? 1 : 0,
-                                        
+                                        color: 'white',
+                                        transition: 'background-color 0.3s ease',
+                                        '&:hover': {
+                                            backgroundColor: 'black',
+                                            color: 'white',
+                                        },
+                                        '&.Mui-expanded': {
+                                            backgroundColor: 'black',
+                                            color: 'white',
+                                        },
                                     }}
                                 >
-                                    <AccordionSummary
-                                        expandIcon={
-                                            <ExpandMoreIcon
-                                                sx={{
-                                                    color: 'white',
-                                                    transition: 'color 0.3s ease',
-                                                    fontSize: '2.5rem',
-                                                    '.Mui-expanded &': {
-                                                        color: 'black',
-                                                    },
-                                                    '&:hover': {
-                                                        color: 'black',
-                                                    },
-                                                }}
-                                            />
-                                        }
-                                        aria-controls={`faq${index}-content`}
-                                        id={`faq${index}-header`}
-                                        sx={{
-                                            backgroundColor: 'transparent',
-                                            color: 'white',
-                                            transition: 'color 0.3s ease',
-                                            '&:hover': {
-                                                color: 'white',
-                                            },
-                                            '&.Mui-expanded': {
-                                                backgroundColor: 'white',
-                                                color: 'black',
-                                            },
-                                        }}
-                                    >
-                                        <Box
+                                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                                        <Typography
                                             sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                width: '100%',
-                                                '&:hover': {
-                                                        color: 'white',
-                                                    },
-                                                    '&.Mui-expanded': {
-                                                        backgroundColor: 'white',
-                                                        color: 'black',
-                                                    },
+                                                fontFamily: 'Arial, sans-serif',
+                                                color: 'white',
+                                                fontSize: '2rem',
+                                                fontWeight: 'bold',
+                                                margin: '0 1rem 0 0',
+                                                textAlign: 'left',
                                             }}
                                         >
-                                            <Typography
-                                                sx={{
-                                                    fontFamily: 'Arial, sans-serif',
-                                                    fontSize: '2rem', // Increased font size
-                                                    fontWeight: 'bold', // Bold styling
-                                                    color: 'white',
-                                                    marginRight: '10px',
-                                                    minWidth: '50px', // Adjusted for alignment
-                                                    textAlign: 'left',
-                                                    '&:hover': {
-                                                        color: 'black',
-                                                    },
-                                                    '&.Mui-expanded': {
-                                                        backgroundColor: 'white',
-                                                        color: 'black',
-                                                    },
-                                                }}
-                                            >
-                                                {String(index + 1).padStart(2, '0')}
-                                            </Typography>
-                                            <Typography
-                                                sx={{
-                                                    fontFamily: 'Arial, sans-serif',
-                                                    fontSize: '1.25rem',
-                                                    color: 'white',
-                                                    textAlign: 'center',
-                                                    flex: 1,
-                                                    '&:hover': {
-                                                        color: 'black',
-                                                    },
-                                                    '&.Mui-expanded': {
-                                                        backgroundColor: 'white',
-                                                        color: 'black',
-                                                    },
+                                            {String(index + 1).padStart(2, '0')}.
+                                        </Typography>
+                                        <Typography
+                                            sx={{
+                                                fontFamily: 'Arial, sans-serif',
+                                                color: 'white',
+                                                fontSize: '1.25rem',
+                                                margin: '0',
+                                                textAlign: 'center',
+                                                width: '100%',
+                                            }}
+                                        >
+                                            {faq.question}
+                                        </Typography>
+                                    </Box>
+                                </AccordionSummary>
 
-                                                }}
-                                            >
-                                                {faq.question}
-                                            </Typography>
-                                        </Box>
-                                    </AccordionSummary>
-
-                                    <AccordionDetails
+                                <AccordionDetails
+                                    sx={{
+                                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                        color: 'white',
+                                        fontSize: '1rem',
+                                        padding: '1rem 1.8rem',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    <Typography
                                         sx={{
-                                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                            color: 'white',
-                                            fontSize: '1rem',
-                                            padding: '1rem 1.8rem',
-                                            textAlign: 'center',
+                                            fontFamily: 'Arial, sans-serif',
+                                            color: 'inherit',
                                         }}
                                     >
-                                        <Typography sx={{ fontFamily: 'Arial, sans-serif', color: 'inherit' }}>
-                                            {faq.answer}
-                                        </Typography>
-                                    </AccordionDetails>
-                                </Accordion>
-
-                                {/* White line separator between boxes */}
-                                {index < faqItems.length - 1 && (
-                                    <Divider
-                                        sx={{
-                                            backgroundColor: 'white',
-                                            height: '3px',
-                                        }}
-                                    />
-                                )}
-                            </React.Fragment>
+                                        {faq.answer}
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
                         ))}
                     </div>
                 </Paper>
