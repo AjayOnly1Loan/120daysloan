@@ -148,7 +148,7 @@ const Footer = () => {
   container
   justifyContent="space-between"
   alignItems="center"
-  sx={{ mb: -3, flexDirection: { xs: "column", md: "row" }, textAlign: { xs: "center", md: "left" } }}
+  sx={{ mb: 0, flexDirection: { xs: "column", md: "row" }, textAlign: { xs: "center", md: "left" } }}
 >
   {/* Left Side: Logo */}
   <Grid item>
