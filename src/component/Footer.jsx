@@ -243,7 +243,7 @@ const Footer = () => {
     </Box>
   </Grid>
 </Grid>
-K
+
 
         {/* Horizontal Divider */}
         <Divider
