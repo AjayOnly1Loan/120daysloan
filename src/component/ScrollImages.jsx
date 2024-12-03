@@ -196,8 +196,8 @@ const ScrollImages = () => {
   }, []);
 
   return (
-    <Box className={classes.container}>
-      <Box className={classes.outerBox}>
+<Box className={classes.container}>
+<Box className={classes.outerBox}>
         <Typography sx={{fontSize:'50px'}} >
           Eligible People  
         </Typography>
@@ -207,7 +207,8 @@ const ScrollImages = () => {
               <Box className={classes.innerBox3}>
                 <Box className={classes.innerBox4}>
                   <Box className={classes.scrollContainer} ref={scrollRef}>
-                    <Box className={classes.imageWrapper}>
+                    <Box id="eligible-people" 
+                    className={classes.imageWrapper}>
                       {images.map((img, index) => (
                         <Box className={classes.imageContainer} key={index}>
                           <img src={img} alt={`image-${index}`} className={classes.image} />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button ,Box} from '@mui/material';
+import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button ,Box,Stack} from '@mui/material';
 
 import logo from '../assets/image/120 Days Logo     Hindi (1).webp'; // Adjust the path based on your structure
 import sidebarBg from '../assets/image/Vector.png'; // Your SVG background
@@ -44,30 +44,75 @@ const Header = () => {
               src={logo}
               alt="Logo"
               sx={{
-                width: { xs: '100px', md: '15%' }, // Responsive sizing
+                width: { xs: '100px', md: '30%' }, // Responsive sizing
                 height: 'auto', // Maintain aspect ratio
               }}
             />
           </Link>
 
-          {/* Sticky Apply Now button on the right */}
+          {/* Buttons in a single row */}
+          <Stack direction="row" spacing={2}>
+
+          <Button
+  id="eligiblepeople-button"
+  component="a"
+  href="#eligible-people"
+  variant="contained"
+  sx={{
+    fontWeight: 100,
+    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+    borderRadius: '50px',
+    padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
+    backgroundColor: 'black',
+    color: 'white',
+    whiteSpace: 'nowrap',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    '&:hover': {
+      backgroundColor: 'gray',
+    },
+  }}
+>
+  Eligible People
+</Button>
+
+
+                      <Button
+            id="calculator-button"
+            component="a"
+            href="#calculator-grid-container"
+            variant="contained"
+            sx={{
+              fontWeight: 100,
+              fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+              borderRadius: '50px',
+              padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
+              backgroundColor: 'black',
+              color: 'white',
+              whiteSpace: 'nowrap',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              '&:hover': {
+                backgroundColor: 'gray',
+              },
+            }}
+          >
+            Calculator
+          </Button>
+
           <Button
   component={Link}
   to="/apply-now"
   variant="contained"
   sx={{
-    position: 'fixed',
-    top: { xs: '60px', sm: '60px', md: '70px', lg: '70px' }, // Increased and responsive top margin
-    right: { xs: '35px', sm: '35px', md: '40px', lg: '50px' }, // Increased and responsive right margin
+    position: 'sticky',
+    top: '20px', // Adjust this value based on where you want the button to stick
     fontWeight: 100,
-    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' }, // Adjusted font size
-    borderRadius: '50px', // Rounded button
-    padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' }, // Responsive padding
+    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+    borderRadius: '50px',
+    padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
     backgroundColor: '#4D0F4A',
     color: 'white',
-    whiteSpace: 'nowrap', // Prevent text wrapping
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow
-    zIndex: 1000, // Keeps the button above other elements
+    whiteSpace: 'nowrap',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     '&:hover': {
       backgroundColor: 'gray',
     },
@@ -76,6 +121,7 @@ const Header = () => {
   Apply Now
 </Button>
 
+          </Stack>
 
 
         </Toolbar>

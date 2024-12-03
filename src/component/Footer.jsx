@@ -173,75 +173,96 @@ const Footer = () => {
 
   {/* Right Side: Social Media Icons */}
   <Grid
-    item
-    sx={{
-      marginRight: { xs: 0, md: "80px" }, // Adjust right margin for mobile
-      textAlign: "center", // Center icons on mobile screens
-    }}
-  >
-    <Box>
-      <IconButton
-        sx={{
-          bgcolor: "black",
-          color: "white",
-          margin: 0.5,
-          "&:hover": {
-            bgcolor: "gray",
-          },
-        }}
-      >
-        <Facebook />
-      </IconButton>
-      <IconButton
-        sx={{
-          bgcolor: "black",
-          color: "white",
-          margin: 0.5,
-          "&:hover": {
-            bgcolor: "gray",
-          },
-        }}
-      >
-        <YouTube />
-      </IconButton>
-      <IconButton
-        sx={{
-          bgcolor: "black",
-          color: "white",
-          margin: 0.5,
-          "&:hover": {
-            bgcolor: "gray",
-          },
-        }}
-      >
-        <Instagram />
-      </IconButton>
-      <IconButton
-        sx={{
-          bgcolor: "black",
-          color: "white",
-          margin: 0.5,
-          "&:hover": {
-            bgcolor: "gray",
-          },
-        }}
-      >
-        <Twitter />
-      </IconButton>
-      <IconButton
-        sx={{
-          bgcolor: "black",
-          color: "white",
-          margin: 0.5,
-          "&:hover": {
-            bgcolor: "gray",
-          },
-        }}
-      >
-        <LinkedIn />
-      </IconButton>
-    </Box>
-  </Grid>
+  item
+  sx={{
+    marginRight: { xs: 0, md: "80px" }, // Adjust right margin for mobile
+    textAlign: "center", // Center icons on mobile screens
+  }}
+>
+  <Box>
+    <IconButton
+      component="a"
+      href=" https://www.facebook.com/profile.php?id=61569497086384"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        bgcolor: "black",
+        color: "white",
+        margin: 0.5,
+        "&:hover": {
+          bgcolor: "gray",
+        },
+      }}
+    >
+      <Facebook />
+    </IconButton>
+    <IconButton
+      component="a"
+      href="https://www.youtube.com/channel/UCspKy-9xngUXoHOxuI7N1Fg"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        bgcolor: "black",
+        color: "white",
+        margin: 0.5,
+        "&:hover": {
+          bgcolor: "gray",
+        },
+      }}
+    >
+      <YouTube />
+    </IconButton>
+    <IconButton
+      component="a"
+      href="https://www.instagram.com/120.daysfinance/"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        bgcolor: "black",
+        color: "white",
+        margin: 0.5,
+        "&:hover": {
+          bgcolor: "gray",
+        },
+      }}
+    >
+      <Instagram />
+    </IconButton>
+    <IconButton
+      component="a"
+      href="https://x.com/120daysfinance"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        bgcolor: "black",
+        color: "white",
+        margin: 0.5,
+        "&:hover": {
+          bgcolor: "gray",
+        },
+      }}
+    >
+      <Twitter />
+    </IconButton>
+    <IconButton
+      component="a"
+      href="https://www.linkedin.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        bgcolor: "black",
+        color: "white",
+        margin: 0.5,
+        "&:hover": {
+          bgcolor: "gray",
+        },
+      }}
+    >
+      <LinkedIn />
+    </IconButton>
+  </Box>
+</Grid>
+
 </Grid>
 
 

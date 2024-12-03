@@ -4,7 +4,7 @@ import { Typography, Grid, Box ,Container,Button,Link,Fade,
   AccordionDetails, } from '@mui/material';
 import VisionImage from '../assets/image/image.png'; // Import your vision image here
 import MissionImage from '../assets/image/image1.png'; // Import your mission image here
-import aboutImage from '../assets/image/About-Us-Banner.jpg'; // Correct image path for about us
+import aboutImage from '../assets/image/About-us-Banner.jpg-120-Days.jpg'; // Correct image path for about us
 import contentImage from "../assets/image/Frame 535 (1).png"; // Correct image path
 import { useInView } from 'react-intersection-observer';
 
@@ -162,7 +162,7 @@ const AboutUs = () => {
           objectFit: "cover",
           padding: { xs: "1px", md: "10px" },
           border: "2px solid transparent",
-          borderRadius: "50px",
+          borderRadius: "40px",
         }}
       />
     </Box>
