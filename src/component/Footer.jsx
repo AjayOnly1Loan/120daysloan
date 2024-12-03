@@ -64,7 +64,7 @@ const Footer = () => {
     <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
       <Typography
         component="a"
-        href="/terms-and-conditions"
+        href="/terms-condition"
         sx={{
           textDecoration: "none",
           color: "black",
@@ -93,7 +93,7 @@ const Footer = () => {
         <Typography sx={{ mx: 1, color: "black" }}>|</Typography>
         <Typography
           component="a"
-          href="/faqs"
+          href="/faq"
           sx={{
             textDecoration: "none",
             color: "black",
@@ -114,8 +114,8 @@ const Footer = () => {
     <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
       Contact Us
     </Typography>
-    <Typography>Email: info@example.com</Typography>
-    <Typography>Phone: +1 234 567 890</Typography>
+    <Typography>Email: info@120daysfinance</Typography>
+    <Typography>Phone: +91 9999999341</Typography>
   </Box>
 
   {/* Reach Out Section */}
@@ -124,9 +124,10 @@ const Footer = () => {
       Reach Out
     </Typography>
     <Typography>
-      123 Main Street, Suite 101
-      <br />
-      Springfield, USA 12345
+    S-370, Panchsheel Park,
+    <br/> 
+    New Delhi 110017, India
+      
     </Typography>
   </Box>
 </Box>

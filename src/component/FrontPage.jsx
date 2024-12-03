@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import backgroundImage from "../assets/image/front.webp";
+import backgroundImage from "../assets/image/Home-Banner.jpg";
 
 const FrontPage = () => {
   const theme = useTheme();
@@ -46,7 +46,7 @@ const FrontPage = () => {
         height: {
           xs: "50vh",
           sm: "80vh",
-          md: "100vh",
+          md: "110vh",
         },
         display: "flex",
         flexDirection: "column",
