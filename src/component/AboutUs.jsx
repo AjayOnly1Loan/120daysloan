@@ -14,6 +14,37 @@ import { useInView } from 'react-intersection-observer';
 
 
 const AboutUs = () => {
+
+  const missionRef = useRef(null);
+  const visionRef = useRef(null);
+  const [missionInView, setMissionInView] = useState(false);
+  const [visionInView, setVisionInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === missionRef.current) {
+            setMissionInView(entry.isIntersecting);
+          } else if (entry.target === visionRef.current) {
+            setVisionInView(entry.isIntersecting);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (missionRef.current) observer.observe(missionRef.current);
+    if (visionRef.current) observer.observe(visionRef.current);
+
+    return () => {
+      if (missionRef.current) observer.unobserve(missionRef.current);
+      if (visionRef.current) observer.unobserve(visionRef.current);
+    };
+  }, []);
+
+
+
   const videoRef = useRef(null);
  // Hooks to detect visibility of the elements
  const [titleRef, titleInView] = useInView({ triggerOnce: false, threshold: 0.7 });
@@ -230,90 +261,36 @@ We are not just another financial service provider but an established NBFC. Our 
 
 
 {/* Mission & Vision */}
-<Box
-  sx={{
-    marginLeft: { xs: 0, md: '55px' }, // Remove margin for small screens
-
-    marginRight: { xs: 0, md: '55px' },
-    padding: 3,
-    backgroundColor: '#C9DDE4',
-    borderRadius: '30px',
-    boxShadow: 2,
-    textAlign: 'left',
-    flex: 1,
-    zIndex: 1,
-    width: { xs: '100%', md: '90%' }, // Match image width for small screens
-  }}
->
-  <Typography
-    variant="h4"
-    component="h2"
-    gutterBottom
-    sx={{
-      fontWeight: 'bold',
-    }}
-  >
-    Our Mission
-  </Typography>
-  <Typography
-    variant="body1"
-    sx={{
-      marginRight: { xs: 0, md: '400px' }, // No margin on small screens
-      fontSize: '20px',
-    }}
-  >
-    At 120daysfinance, our mission is to provide quick, reliable, and affordable financing solutions for small businesses, ensuring they have the resources they need to succeed. If you're approved, the funds are transferred directly to your bank account—no delays, no hassle. Our goal is to ensure that accessing financial help is straightforward and efficient, so you can focus on what really matters.
-  </Typography>
-</Box>
-
-{/* Image */}
-<Box
-  component="img"
-  src={MissionImage}
-  alt="Our Mission"
-  sx={{
-    width: { xs: '80%', sm: '70%', md: '27%' }, // Adjust width for smaller screens
-    height: 'auto',
-    borderRadius: '8px',
-    maxWidth: '100%',
-    position: { xs: 'static', md: 'absolute' }, // Static for small screens, absolute for larger screens
-    left: { md: '74%' }, // Apply left positioning only on larger screens
-    transform: { md: 'translate(-50%, -20%)' }, // Only for larger screens
-    zIndex: 6,
-    marginTop: { xs: '20px', md: -32 }, // Add spacing for smaller screens
-    marginX: { xs: 'auto', md: 0 }, // Center the image horizontally on small screens
-    marginLeft: { xs: '30px', sm: '0', md: '0' }, // Center on small screens
-    marginRight: { xs: 'auto', sm: '0', md: '0' }, // Ensure it's centered
-  }}
-/>
-
-
-
+<Box>
+      {/* Mission Section */}
       <Box
-         sx={{
-          marginLeft: { xs: 0, md: '40px' }, // Remove margin for small screens
-          marginRight: { xs: 0, md: '40px' },
-          marginTop:{xs:'20px',md:'100px'} ,
+        ref={missionRef}
+        sx={{
+          backgroundColor: '#ffff',
+          borderRadius: '30px',
+          marginLeft: { xs: 0, md: '50px' },
+          marginRight: { xs: 0, md: '50px' },
+          marginTop: { xs: '20px', md: '100px' },
           marginBottom: '50px',
           display: 'flex',
-          alignItems: 'center',
-          flexDirection: { xs: 'column', md: 'column' }, // Keep stacked vertically
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between',
           padding: 3,
-          position: 'relative', // Maintain zIndex stacking
+          position: 'relative',
+          alignItems: 'center',
+          flexWrap: 'wrap',
         }}
       >
         {/* Content Box */}
         <Box
           sx={{
-            padding: 4,
-            backgroundColor: '#DED3EE',
-            boxShadow: 2,
+            border: 'none',
+            padding: 3,
             textAlign: 'left',
             flex: 1,
             zIndex: 1,
-            borderRadius: '30px',
-
-            width: { xs: '120%', md: '100%' }, // Adjust width for smaller screens
+            width: { xs: '100%', md: '50%' },
+            backgroundColor: 'transparent',
           }}
         >
           <Typography
@@ -321,7 +298,101 @@ We are not just another financial service provider but an established NBFC. Our 
             component="h2"
             gutterBottom
             sx={{
-              marginLeft: { xs: 0, md: '400px' }, // Reset margin on smaller screens
+              fontWeight: 'bold',
+            }}
+          >
+            Our Mission
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: '20px',
+            }}
+          >
+            At 120daysfinance, our mission is to provide quick, reliable, and
+            affordable financing solutions for small businesses, ensuring they
+            have the resources they need to succeed. If you're approved, the
+            funds are transferred directly to your bank account—no delays, no
+            hassle. Our goal is to ensure that accessing financial help is
+            straightforward and efficient, so you can focus on what really
+            matters.
+          </Typography>
+        </Box>
+
+        {/* Image Box with Flip Animation */}
+        <Box
+          component="img"
+          src={MissionImage}
+          alt="Our Mission"
+          sx={{
+            width: { xs: '100%', md: '50%' },
+            height: '400px',
+            borderRadius: '30px',
+            objectFit: 'cover',
+            marginTop: { xs: '20px', md: '0' },
+            marginLeft: { md: 3 },
+            marginBottom: { xs: '20px', md: '0' },
+            transition: 'transform 0.6s',
+            transformStyle: 'preserve-3d',
+            transform: missionInView ? 'rotateY(180deg)' : 'rotateY(0deg)',
+          }}
+        />
+      </Box>
+
+      {/* Vision Section */}
+      <Box
+        ref={visionRef}
+        sx={{
+          backgroundColor: '#ffff',
+          borderRadius: '30px',
+          marginLeft: { xs: 0, md: '50px' },
+          marginRight: { xs: 0, md: '50px' },
+          marginTop: { xs: '20px', md: '100px' },
+          marginBottom: '50px',
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between',
+          padding: 3,
+          position: 'relative',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        {/* Image Box with Flip Animation */}
+        <Box
+          component="img"
+          src={VisionImage}
+          alt="Our Vision"
+          sx={{
+            width: { xs: '100%', md: '50%' },
+            height: '400px',
+            borderRadius: '30px',
+            objectFit: 'cover',
+            marginTop: { xs: '20px', md: '0' },
+            marginLeft: { md: 3 },
+            marginBottom: { xs: '20px', md: '0' },
+            transition: 'transform 0.6s',
+            transformStyle: 'preserve-3d',
+            transform: visionInView ? 'rotateY(180deg)' : 'rotateY(0deg)',
+          }}
+        />
+
+        {/* Content Box */}
+        <Box
+          sx={{
+            border: 'none',
+            padding: 3,
+            textAlign: 'left',
+            flex: 1,
+            zIndex: 1,
+            width: { xs: '100%', md: '50%' },
+          }}
+        >
+          <Typography
+            variant="h4"
+            component="h2"
+            gutterBottom
+            sx={{
               fontWeight: 'bold',
             }}
           >
@@ -330,33 +401,23 @@ We are not just another financial service provider but an established NBFC. Our 
           <Typography
             variant="body1"
             sx={{
-              marginLeft: { xs: 0, md: '400px'  },
-              fontSize:'20px'
-              // Reset margin on smaller screens
+              fontSize: '20px',
             }}
           >
-       At 120daysfinance.com, we are dedicated to empowering small businesses in India with fast, flexible, and reliable financing solutions. Our mission is to provide quick access to the capital you need, without the complexities of traditional lending. Whether you are looking to manage your working capital, purchase new equipment, or fund an upcoming project, we are here to help with straightforward loans that put your business first.          </Typography>
+            At 120daysfinance.com, we are dedicated to empowering small
+            businesses in India with fast, flexible, and reliable financing
+            solutions. Our mission is to provide quick access to the capital
+            you need, without the complexities of traditional lending. Whether
+            you are looking to manage your working capital, purchase new
+            equipment, or fund an upcoming project, we are here to help with
+            straightforward loans that put your business first.
+          </Typography>
         </Box>
-
-        {/* Image */}
-        <Box
-          component="img"
-          src={VisionImage}
-          alt="Our Vision"
-          sx={{
-            width: { xs: '100%', md: '33%' }, // Set size for smaller and larger screens
-            height: 'auto',
-            borderRadius: '30px',
-            maxWidth: { xs: 'none', md: '60%' }, // Allow larger width on small screens
-            position: { xs: 'static', md: 'absolute' }, // Absolute position only for larger screens
-            right: { md: '45%' }, // Position for larger screens
-            transform: { md: 'translate(-50%, -20%)' }, // Apply only on larger screens
-            zIndex: 6,
-            marginTop: { xs: '20px', md: 4 }, // Add spacing for smaller screens
-          }}
-        />
-
       </Box>
+    </Box>
+
+
+
       {/* why choose us */}
       <Container
       sx={{

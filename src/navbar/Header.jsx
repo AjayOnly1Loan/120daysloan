@@ -95,7 +95,7 @@ const Header = () => {
               },
             }}
           >
-            Calculator
+          Loan Calculator
           </Button>
 
           <Button
