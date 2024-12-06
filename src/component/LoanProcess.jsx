@@ -48,7 +48,7 @@ const LoanProcess = () => {
           fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
         }}
       >
-        Easy Loan Process
+        How To Apply
       </Typography>
 
       <Box

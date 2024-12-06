@@ -53,27 +53,50 @@ const Header = () => {
           {/* Buttons in a single row */}
           <Stack direction="row" spacing={2}>
 
-          <Button
-  id="eligiblepeople-button"
-  component="a"
-  href="#eligible-people"
-  variant="contained"
-  sx={{
-    fontWeight: 100,
-    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
-    borderRadius: '50px',
-    padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
-    backgroundColor: 'black',
-    color: 'white',
-    whiteSpace: 'nowrap',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    '&:hover': {
-      backgroundColor: 'gray',
-    },
-  }}
->
-  Eligible People
-</Button>
+            <Button
+            component={Link}
+            to="/apply-now"
+            variant="contained"
+            sx={{
+              position: 'sticky',
+              top: '20px', // Adjust this value based on where you want the button to stick
+              fontWeight: 100,
+              fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+              borderRadius: '50px',
+              padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
+              backgroundColor: '#4D0F4A',
+              color: 'white',
+              whiteSpace: 'nowrap',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              '&:hover': {
+                backgroundColor: 'gray',
+              },
+            }}
+          >
+            Apply Now
+          </Button>
+
+              <Button
+                id="eligiblepeople-button"
+                component="a"
+                href="#eligible-people"
+                variant="contained"
+                sx={{
+                  fontWeight: 100,
+                  fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+                  borderRadius: '50px',
+                  padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
+                  backgroundColor: '#4D0F4A',
+                  color: 'white',
+                  whiteSpace: 'nowrap',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  '&:hover': {
+                    backgroundColor: 'gray',
+                  },
+                }}
+              >
+                Eligible Profile
+              </Button>
 
 
                       <Button
@@ -86,7 +109,7 @@ const Header = () => {
               fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
               borderRadius: '50px',
               padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
-              backgroundColor: 'black',
+              backgroundColor: '#4D0F4A',
               color: 'white',
               whiteSpace: 'nowrap',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -98,28 +121,7 @@ const Header = () => {
           Loan Calculator
           </Button>
 
-          <Button
-  component={Link}
-  to="/apply-now"
-  variant="contained"
-  sx={{
-    position: 'sticky',
-    top: '20px', // Adjust this value based on where you want the button to stick
-    fontWeight: 100,
-    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
-    borderRadius: '50px',
-    padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
-    backgroundColor: '#4D0F4A',
-    color: 'white',
-    whiteSpace: 'nowrap',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    '&:hover': {
-      backgroundColor: 'gray',
-    },
-  }}
->
-  Apply Now
-</Button>
+      
 
           </Stack>
 

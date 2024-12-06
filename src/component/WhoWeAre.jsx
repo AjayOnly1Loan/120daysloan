@@ -68,7 +68,7 @@ const WhoWeAre = () => {
               mb: { xs: 2, md: 0 },
             }}
           >
-            About Us
+            Who We Are?
           </Typography>
         </Box>
 
