@@ -178,8 +178,8 @@ const SortFAQ = () => {
 
 const faqItems = [
     {
-        question: 'What is 120daysfinance.com?',
-        answer: '120daysfinance.com is a lending platform offering short-term loans to small businesses across India. Our loans are specifically designed for a tenure of 120 days, providing quick financial assistance to meet your business\'s operational and working capital needs.',
+        question: 'What is 120daysfinance?',
+        answer: '120daysfinanceis a lending platform offering short-term loans to small businesses across India. Our loans are specifically designed for a tenure of 120 days, providing quick financial assistance to meet the operational and working capital needs of your business.',
     },
     {
         question: 'Who can apply for a loan?',
@@ -187,7 +187,7 @@ const faqItems = [
     },
     {
         question: 'What kind of loans do you offer?',
-        answer: '120daysfinance.com offers short-term business loans for small enterprises, helping them cover operational expenses, manage cash flow, or seize new business opportunities, all with a tenure of 120 days.',
+        answer: '120daysfinance offers short-term business loans for small enterprises, helping them cover operational expenses, manage cash flow, or seize new business opportunities, all with a tenure of 120 days.',
     },
     {
         question: 'What loan amount can I borrow?',

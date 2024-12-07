@@ -149,7 +149,7 @@ const Header = () => {
                     },
                   }}
                 >
-                  Eligible Profile
+                  Eligible Profiles
                   
                 </Button>
 

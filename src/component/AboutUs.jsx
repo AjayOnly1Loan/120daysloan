@@ -309,13 +309,7 @@ We are not just another financial service provider but an established NBFC. Our 
               fontSize: '20px',
             }}
           >
-            At 120daysfinance, our mission is to provide quick, reliable, and
-            affordable financing solutions for small businesses, ensuring they
-            have the resources they need to succeed. If you're approved, the
-            funds are transferred directly to your bank account—no delays, no
-            hassle. Our goal is to ensure that accessing financial help is
-            straightforward and efficient, so you can focus on what really
-            matters.
+           We aim to provide quick, reliable, and affordable financing solutions for small businesses, ensuring they have full access to the resources they need to flourish. We have an objective of transforming how business owners access finances and manage their expenses. With a commitment to make experience better, our goal is to foster trust, making lives better, and providing financial security through smart solutions.
           </Typography>
         </Box>
 
@@ -404,13 +398,7 @@ We are not just another financial service provider but an established NBFC. Our 
               fontSize: '20px',
             }}
           >
-            At 120daysfinance.com, we are dedicated to empowering small
-            businesses in India with fast, flexible, and reliable financing
-            solutions. Our mission is to provide quick access to the capital
-            you need, without the complexities of traditional lending. Whether
-            you are looking to manage your working capital, purchase new
-            equipment, or fund an upcoming project, we are here to help with
-            straightforward loans that put your business first.
+            We sight for providing hassle-free instant access to the capital any business may need to grow. Our goal is to simplify financial solutions, which can enable entrepreneurs to accomplish their business objectives. With trust, transparency, and innovative solutions, we also aim for creating growth and financial stability. We aim to empower your business without letting you go through any financial obstacles.-
           </Typography>
         </Box>
       </Box>

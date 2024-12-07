@@ -175,7 +175,7 @@ const useStyles = makeStyles(() => ({
 const ScrollImages = () => {
   const classes = useStyles();
   const images = [image1, image2, image3, image4,image5,image6,image7];
-  const texts = ['Make-up Artist  ', 'Entrepreneur', 'Butique', 'Salon','Contractor','Small Buisness Owner','Startup'];
+  const texts = ['Make-Up Artist  ', 'Entrepreneur', 'Boutique', 'Salon','Contractor','Small Business Owner','Startup'];
   const scrollRef = useRef();
 
   const handleScroll = () => {
@@ -200,7 +200,7 @@ const ScrollImages = () => {
 <Box className={classes.outerBox}>
         <Typography sx={  {fontSize: { xs: "2rem", md: "3rem" },
 } }>
-          Eligible Profile 
+          Eligible Profiles
         </Typography>
         <Box className={classes.middleBox}>
           <Box className={classes.innerBox}>

@@ -9,7 +9,7 @@ const loanSteps = [
   {
     icon: <HowToRegIcon fontSize="large" color="primary" />,
     title: "Apply Online",
-    description: "Click on Apply Now, Fill out our quick and easy online application."
+    description: "Click on Apply Now, fill out our quick and easy online application."
   },
   {
     icon: <AccountBalanceIcon fontSize="large" color="secondary" />,
@@ -48,13 +48,13 @@ const LoanProcess = () => {
           fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
         }}
       >
-        How To Apply
+        How To Apply?
       </Typography>
   <Typography sx={{color: "white",
           marginBottom: 3,
           fontWeight: 500,
           fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1.2rem" },}}>
-    Applying for a Buissiness loan from 120daysfinance in easy 4 step
+    Applying for a Business Loan from 120daysfinance is easy in these 4 steps:
   </Typography>
       <Box
         sx={{
