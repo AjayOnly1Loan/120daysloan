@@ -1,12 +1,12 @@
 import React from "react";
 import { Typography, Box, Container } from "@mui/material";
-import contentImage from "../assets/image/Frame 535 (1).png"; // Ensure the path to the image is correct
+import contentImage from "../assets/image/Frame 535 (3).png"; // Ensure the path to the image is correct
 
 const WhyChooseUs = () => {
-  const heading = "Why Choose Us"; // Define the heading
+  const heading = "Our Product Features:"; // Define the heading
 
   return (
-    <Box sx={{        background: "linear-gradient(to bottom,#140514, black, #4D0F4A, #140514)",paddingTop:{sx:'20px',ms:'60px'}
+    <Box sx={{ background: "linear-gradient(to bottom,#140514, black, #4D0F4A, #140514)",paddingTop:{sx:'20px',ms:'60px'},paddingX:{xs:'10px',md:'40px'}
     }}>
       {/* Heading */}
       <Typography

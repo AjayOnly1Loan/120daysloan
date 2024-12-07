@@ -249,7 +249,7 @@ const AboutUs = () => {
         >
 At 120daysfinance, we understand that life can throw unexpected challenges so every business needs to meet their urgent requirements. And sometimes, a little financial boost can make a huge difference.
 That’s why we are here to help you – a leading financial partner for small businesses across India. We provide our users with the quickest, most reliable, and complete hassle-free solutions for their financial concerns.
-We are not just another financial service provider but an established NBFC. Our main motto lies in empowering entrepreneurs with the confidence to manage their expenses without hassles.
+We are not just another financial service provider but an RBI-affiliated NBFC. Our main motto lies in empowering entrepreneurs with the confidence to manage their expenses without hassles.
         </Typography>
       </Fade>
     

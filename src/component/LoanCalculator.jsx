@@ -76,7 +76,7 @@ const LoanCalculator = () => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
 
-                paddingY: 4, // Adds vertical padding
+                paddingY:{xs:1,md:4} , // Adds vertical padding
                 background: 'linear-gradient(to bottom, #140514, #4D0F4A, black)', // Top-to-bottom gradient
               
             }}
