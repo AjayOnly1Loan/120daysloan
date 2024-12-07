@@ -51,7 +51,7 @@ const TermsAndConditions = () => {
 
                         <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                            Welcome to 120daysfinance.com. By accessing or using our services, you agree to comply with and be bound by these Terms and Conditions. These Terms constitute a legal agreement between you (the "Borrower" or "User") and Naman Finlease Private Limited ("Company," "we," "our," or "us"). If you do not agree to these Terms, please refrain from using our services.                            </Typography>
+                            Welcome to 120daysfinance. By accessing or using our services, you agree to comply with and be bound by these Terms and Conditions. These Terms constitute a legal agreement between you (the "Borrower" or "User") and Naman Finlease Private Limited ("Company," "we," "our," or "us"). If you do not agree to these Terms, please refrain from using our services.                            </Typography>
                             {/* <Typography>
                                 These Terms and Conditions constitute a legal agreement between you and Naman Finlease Private Limited (an NBFC registered with RBI for lending purposes), which governs your use of our website and services. Please read these terms carefully. If you do not agree with these terms, you should refrain from using this website or applying for loans through 120daysfinance.
                             </Typography> */}
@@ -114,7 +114,7 @@ const TermsAndConditions = () => {
                         </Typography>
                         <Typography>
                             <ul>
-                                <li><strong>Online Application:</strong> Submit your loan application through 120daysfinance.com by providing accurate and up-to-date information.</li>
+                                <li><strong>Online Application:</strong> Submit your loan application through 120daysfinance by providing accurate and up-to-date information.</li>
                                 <li><strong>Document Submission:</strong> Upload the required documents, including:
                                     <ul>
                                         <li>PAN Card and Aadhaar Card (for identity verification).</li>

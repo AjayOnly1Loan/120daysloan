@@ -398,7 +398,7 @@ We are not just another financial service provider but an established NBFC. Our 
               fontSize: '20px',
             }}
           >
-            We sight for providing hassle-free instant access to the capital any business may need to grow. Our goal is to simplify financial solutions, which can enable entrepreneurs to accomplish their business objectives. With trust, transparency, and innovative solutions, we also aim for creating growth and financial stability. We aim to empower your business without letting you go through any financial obstacles.-
+            We sight for providing hassle-free instant access to the capital any business may need to grow. Our goal is to simplify financial solutions, which can enable entrepreneurs to accomplish their business objectives. With trust, transparency, and innovative solutions, we also aim for creating growth and financial stability. We aim to empower your business without letting you go through any financial obstacles.
           </Typography>
         </Box>
       </Box>

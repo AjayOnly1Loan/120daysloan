@@ -76,8 +76,8 @@ const FAQs = () => {
     {[
       {
         id: 'faq1',
-        question: '1. What is 120daysfinance.com?',
-        answer: `120daysfinance.com is an online platform operated by Naman Finlease Private Limited, an RBI-registered NBFC, offering short-term business loans to small vendors, micro-entrepreneurs, and SMEs across India.`,
+        question: '1. What is 120daysfinance?',
+        answer: `120daysfinance is an online platform operated by Naman Finlease Private Limited, an RBI-registered NBFC, offering short-term business loans to small vendors, micro-entrepreneurs, and SMEs across India.`,
       },
       {
         id: 'faq2',
@@ -92,12 +92,12 @@ const FAQs = () => {
       {
         id: 'faq4',
         question: '4. What documents are required to apply for a loan?',
-        answer: `You will need the following documents:<br />● PAN and Aadhaar cards (for identity verification).<br />● Business registration certificate or GST registration.<br />● Last 6 months' bank statements.<br />● Proof of business address.<br />● Income proof (if applicable).`,
+        answer: `You will need the following documents:<br />● PAN and Aadhaar card (for identity verification).<br />● Business registration certificate or GST registration.<br />● Last 6 months' bank statements.<br />● Proof of business address.<br />● Income proof (if applicable).`,
       },
       {
         id: 'faq5',
         question: '5. How can I apply for a loan?',
-        answer: `You can apply for a loan by following these steps:<br />1. Visit 120daysfinance.com.<br />2. Complete the online loan application form.<br />3. Upload the required documents.<br />4. Submit the application for review.`,
+        answer: `You can apply for a loan by following these steps:<br />1. Visit 120daysfinance.<br />2. Complete the online loan application form.<br />3. Upload the required documents.<br />4. Submit the application for review.`,
       },
       {
         id: 'faq6',
