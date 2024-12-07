@@ -198,8 +198,9 @@ const ScrollImages = () => {
   return (
 <Box className={classes.container}>
 <Box className={classes.outerBox}>
-        <Typography sx={{fontSize:'50px'}} >
-          Eligible People  
+        <Typography sx={  {fontSize: { xs: "2rem", md: "3rem" },
+} }>
+          Eligible Profile 
         </Typography>
         <Box className={classes.middleBox}>
           <Box className={classes.innerBox}>

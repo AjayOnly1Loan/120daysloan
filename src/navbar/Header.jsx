@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Box, Stack } from '@mui/material';
+import { AppBar, Toolbar, Drawer, List, ListItem, ListItemText, Button, Box, Stack,Hidden } from '@mui/material';
 
 import logo from '../assets/image/120 Days Logo     Hindi (1).webp'; // Adjust the path based on your structure
 import sidebarBg from '../assets/image/Vector.png'; // Your SVG background
@@ -56,31 +56,31 @@ const Header = () => {
 
           {/* Buttons in a single row */}
           <Stack direction="row" spacing={2}>
-            <Button
-              component={Link}
-              to="/apply-now"
-              variant="contained"
-              sx={{
-                position: 'sticky',
-                top: '20px', // Adjust this value based on where you want the button to stick
-                fontWeight: 100,
-                fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
-                borderRadius: '50px',
-                padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
-                backgroundColor: '#4D0F4A',
-                color: 'white',
-                whiteSpace: 'nowrap',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                '&:hover': {
-                  backgroundColor: 'gray',
-                },
-              }}
-            >
-              Apply Now
-            </Button>
+  <Button
+    component={Link}
+    to="/apply-now"
+    variant="contained"
+    sx={{
+      fontWeight: 100,
+      fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '14px' },
+      borderRadius: '50px',
+      padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
+      backgroundColor: '#4D0F4A',
+      color: 'white',
+      whiteSpace: 'nowrap',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      '&:hover': {
+        backgroundColor: '#e0e0de',
+        color:'black'
+      },
+    }}
+  >
+    Apply Now
+  </Button>
 
-            {/* Conditional rendering for "Eligible Profile" and "Loan Calculator" */}
-            {isHomePage ? (
+  {/* Hide these buttons on small screens */}
+  <Hidden smDown>
+  {isHomePage ? (
               <>
                 <Button
                   id="eligiblepeople-button"
@@ -89,7 +89,7 @@ const Header = () => {
                   variant="contained"
                   sx={{
                     fontWeight: 100,
-                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '14px' },
                     borderRadius: '50px',
                     padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
                     backgroundColor: '#4D0F4A',
@@ -97,7 +97,8 @@ const Header = () => {
                     whiteSpace: 'nowrap',
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                     '&:hover': {
-                      backgroundColor: 'gray',
+                      backgroundColor: '#e0e0de',
+                      color:'black'
                     },
                   }}
                 >
@@ -111,7 +112,7 @@ const Header = () => {
                   variant="contained"
                   sx={{
                     fontWeight: 100,
-                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '14px' },
                     borderRadius: '50px',
                     padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
                     backgroundColor: '#4D0F4A',
@@ -119,7 +120,8 @@ const Header = () => {
                     whiteSpace: 'nowrap',
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                     '&:hover': {
-                      backgroundColor: 'gray',
+                      backgroundColor: '#e0e0de',
+                      color:'black'
                     },
                   }}
                 >
@@ -134,7 +136,7 @@ const Header = () => {
                   variant="contained"
                   sx={{
                     fontWeight: 100,
-                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '14px' },
                     borderRadius: '50px',
                     padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
                     backgroundColor: '#4D0F4A',
@@ -142,11 +144,13 @@ const Header = () => {
                     whiteSpace: 'nowrap',
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                     '&:hover': {
-                      backgroundColor: 'gray',
+                      backgroundColor: '#e0e0de',
+                      color:'black'
                     },
                   }}
                 >
                   Eligible Profile
+                  
                 </Button>
 
                 <Button
@@ -155,7 +159,7 @@ const Header = () => {
                   variant="contained"
                   sx={{
                     fontWeight: 100,
-                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '18px' },
+                    fontSize: { xs: '12px', sm: '14px', md: '16px', lg: '14px' },
                     borderRadius: '50px',
                     padding: { xs: '5px 12px', sm: '7px 15px', md: '10px 20px' },
                     backgroundColor: '#4D0F4A',
@@ -163,7 +167,8 @@ const Header = () => {
                     whiteSpace: 'nowrap',
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                     '&:hover': {
-                      backgroundColor: 'gray',
+                      backgroundColor: '#e0e0de',
+                      color:'black'
                     },
                   }}
                 >
@@ -171,7 +176,9 @@ const Header = () => {
                 </Button>
               </>
             )}
-          </Stack>
+          </Hidden>
+</Stack>
+
         </Toolbar>
       </AppBar>
 
@@ -223,7 +230,7 @@ const Header = () => {
             onClick={scrollToTop}
             sx={{ paddingY: 0.5, color: 'black' }} // Adjust vertical padding
           >
-            <ListItemText primary="About" />
+            <ListItemText primary="AboutUs" />
           </ListItem>
           <ListItem
             button
@@ -232,7 +239,7 @@ const Header = () => {
             onClick={scrollToTop}
             sx={{ paddingY: 0.5, color: 'black' }} // Adjust vertical padding
           >
-            <ListItemText primary="Repay" />
+            <ListItemText primary="RepayNow" />
           </ListItem>
           <ListItem
             button
@@ -241,7 +248,7 @@ const Header = () => {
             onClick={scrollToTop}
             sx={{ paddingY: 0.5, color: 'black' }} // Adjust vertical padding
           >
-            <ListItemText primary="Contact" />
+            <ListItemText primary="ContactUs" />
           </ListItem>
         </List>
       </Drawer>

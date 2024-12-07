@@ -38,7 +38,7 @@ const WhoWeAre = () => {
       ref={containerRef}
       sx={{
         width: "100%",
-        minHeight: { xs: "auto", md: "70vh" },
+        minHeight: { xs: "auto", md: "50vh" },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -66,6 +66,10 @@ const WhoWeAre = () => {
             sx={{
               fontSize: { xs: "2rem", md: "3rem" },
               mb: { xs: 2, md: 0 },
+             '&:hover': {
+                  backgroundColor: '#e0e0de',
+                  color:'black'
+                },
             }}
           >
             Who We Are?

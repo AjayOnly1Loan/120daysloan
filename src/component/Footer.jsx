@@ -55,7 +55,7 @@ const Footer = () => {
       variant="h6"
       sx={{
         fontWeight: "bold",
-        mb: 1,
+       
       }}
     >
       Quick Links
@@ -111,7 +111,7 @@ const Footer = () => {
 
   {/* Contact Us Section */}
   <Box sx={{ flex: 1, textAlign: "center", minWidth: "200px" }}>
-    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
       Contact Us
     </Typography>
     <Typography>Email: info@120daysfinance</Typography>
@@ -120,7 +120,7 @@ const Footer = () => {
 
   {/* Reach Out Section */}
   <Box sx={{ flex: 1, textAlign: "center", minWidth: "200px" }}>
-    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
       Reach Out
     </Typography>
     <Typography>
@@ -137,7 +137,7 @@ const Footer = () => {
         <Divider
           sx={{
             marginX:'50px',
-            my: 2,
+            my: 1,
             borderColor: "#333", // Dark gray for boldness
             borderWidth: "1.5px", // Make it thicker
             borderStyle: "solid",
@@ -271,7 +271,7 @@ const Footer = () => {
           sx={{
             marginX:'50px',
 
-            my: 2,
+            my: 1,
             borderColor: "#333", // Dark gray for boldness
             borderWidth: "1.5px", // Make it thicker
             borderStyle: "solid",

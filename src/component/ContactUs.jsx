@@ -1,5 +1,8 @@
 import React from 'react';
-import { TextField, Button, Grid, Typography, Box } from '@mui/material';
+import { TextField, Button, Grid, Typography,  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,  Box } from '@mui/material';
 import Swal from 'sweetalert2'; // Import SweetAlert
 import aboutImage from '../assets/image/Contact-Us-Banner-Image (1) (1).jpg';
 
@@ -179,36 +182,74 @@ const ContactUs = () => {
       />
     </Grid>
 
-    {/* Full-Width Message Field */}
     <Grid item xs={12}>
-      <TextField
-        label="Message"
-        variant="outlined"
-        fullWidth
-        multiline
-        rows={4}
-        required
-        InputProps={{
-          sx: { borderRadius: '15px', color: 'white' },
-        }}
-        InputLabelProps={{
-          style: { color: 'white' },
-        }}
-        sx={{
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: 'white',
-            },
-            '&:hover fieldset': {
-              borderColor: 'orange',
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: 'orange',
-            },
-          },
-        }}
-      />
-    </Grid>
+    <FormControl fullWidth required>
+  <InputLabel style={{ color: 'white' }}>
+    Message Type
+  </InputLabel>
+  <Select
+    variant="outlined"
+    defaultValue=""
+    sx={{
+      borderRadius: '15px',
+      color: 'white',
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'white',  // White border color for the outline
+        },
+        '&:hover fieldset': {
+          borderColor: 'white',  // Orange border on hover
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'white',  // Orange border when focused
+        },
+      },
+      '& .MuiSelect-icon': {
+        color: 'white', // Set the dropdown icon color to white
+      },
+    }}
+  >
+    <MenuItem value="Query">Query</MenuItem>
+    <MenuItem value="Feedback">Feedback</MenuItem>
+    <MenuItem value="Other">Other</MenuItem>
+  </Select>
+</FormControl>
+
+</Grid>
+
+
+<Grid item xs={12}>
+  {/* Text Field for Customer Message */}
+  <TextField
+    label="Your Message"
+    variant="outlined"
+    fullWidth
+    required
+    multiline
+    rows={4}
+    InputProps={{
+      sx: { borderRadius: '15px', color: 'white' },
+    }}
+    InputLabelProps={{
+      style: { color: 'white' },
+    }}
+    sx={{
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'white',
+        },
+        '&:hover fieldset': {
+          borderColor: 'orange',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'orange',
+        },
+      },
+    }}
+  />
+</Grid>
+
+
 
     {/* Submit Button */}
     <Grid item xs={12}>
@@ -221,7 +262,10 @@ const ContactUs = () => {
           borderRadius: '15px',
           backgroundColor: 'white',
           color: 'black',
-          '&:hover': { backgroundColor: 'gray' },
+          '&:hover': {
+            backgroundColor: '#e0e0de',
+            color:'black'
+          },
         }}
       >
         Submit

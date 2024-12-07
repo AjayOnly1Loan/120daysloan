@@ -87,7 +87,7 @@ const LoanCalculator = () => {
                         }}>
                         Personal Loan Calculator
                     </Typography>
-                    <Typography  align="center" gutterBottom sx={{ color: 'white',fontSize:{xs: '16px', sm: '22px' } }}>
+                    <Typography  align="center" gutterBottom sx={{ color: 'white',fontSize:{xs: '14px', sm: '18px' } }}>
                     Easily estimate your loan details with our handy calculator. See how different loan amounts, tenures, and interest rates impact your total payable amount. Find out exactly what you'll owe and plan your finances confidently.                    </Typography>
 
                     <Grid 

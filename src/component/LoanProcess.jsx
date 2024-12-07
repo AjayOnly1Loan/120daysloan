@@ -43,14 +43,19 @@ const LoanProcess = () => {
         gutterBottom
         sx={{
           color: "white",
-          marginBottom: 6,
+          marginBottom: 1,
           fontWeight: 600,
           fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
         }}
       >
         How To Apply
       </Typography>
-
+  <Typography sx={{color: "white",
+          marginBottom: 3,
+          fontWeight: 500,
+          fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1.2rem" },}}>
+    Applying for a Buissiness loan from 120daysfinance in easy 4 step
+  </Typography>
       <Box
         sx={{
           display: "flex",

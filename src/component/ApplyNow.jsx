@@ -25,28 +25,40 @@ const ApplyNow = () => {
 
   return (
     <div>
-      <Box 
-        sx={{ 
-          background: "linear-gradient(to bottom, #4D0F4A, black,  #140514)", // Top-to-bottom gradient
+    <Box
+      sx={{
+        background: 'linear-gradient(to bottom, black, #4D0F4A, #140514)',
 
-          minHeight: '100vh', // Adjust height as needed
-          padding: '30px',
+        minHeight: '100vh',
+        padding: '30px',
+      }}
+    >
+      {/* About Image Section */}
+      <Box
+        sx={{
+          position: 'relative',
+          width: '100%',
+          height: { xs: '40vh', sm: '70vh', md: '80vh', lg: '90vh' },
+          overflow: 'hidden',
+          mb: 2,
         }}
       >
-      {/* Image Section - Full Width */}
-      <Box 
-        sx={{ 
-          position: 'relative', // Make the container relative for absolute positioning
-          mb: 4 
-        }}
-      >
-        {/* Image on the bottom */}
-        <img 
-          src={ApplyNowImage} 
-          alt="Apply Now" 
-          style={{ width: '100%', height: '90vh',marginTop:'0px' ,borderRadius:'30px'}} 
+        <Box
+          component="img"
+          src={ApplyNowImage}
+          alt="Contact Us"
+          sx={{
+            
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            border: '2px solid none',
+            borderRadius: '30px',
+          }}
         />
-        
       </Box>
 
 
@@ -746,8 +758,8 @@ const ApplyNow = () => {
               color: 'black', 
               fontWeight:'bold',
               borderRadius:'30px',
-              '&:hover': { backgroundColor: 'gray' },
-              fontSize: '0.75rem', // Smaller font size for the button
+              '&:hover': { backgroundColor: '#e0e0de' },
+              fontSize: '14px', // Smaller font size for the button
               padding: '8px ', // Smaller padding
             }}
           >
