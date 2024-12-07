@@ -6,21 +6,22 @@ const WhyChooseUs = () => {
   const heading = "Why Choose Us"; // Define the heading
 
   return (
-    <Box sx={{        background: "linear-gradient(to bottom,#140514, black, #4D0F4A, #140514)",paddingTop:{sx:'20px',ms:'40px'}
+    <Box sx={{        background: "linear-gradient(to bottom,#140514, black, #4D0F4A, #140514)",paddingTop:{sx:'20px',ms:'60px'}
     }}>
       {/* Heading */}
       <Typography
-        sx={{
+  sx={{
+    mt: { xs: 0, md: 0 },
+    fontWeight: 700, // Bold text
+    fontSize: { xs: "40px", md: "60px" }, // Responsive font size
+    color: "#D9D9D9", // Text color
+    marginBottom: { xs: 1, md: 5 }, // Responsive margin
+    textAlign: "center", // Center the text horizontally
+  }}
+>
+  {heading}
+</Typography>
 
-          mt: { xs: 0, md: 0 },
-          fontWeight: 700, // Bold text
-          fontSize: { xs: "40px", md: "60px" }, // Responsive font size
-          color: "#D9D9D9", // Text color
-          marginBottom: { xs: 1, md: 5 }, // Responsive margin
-        }}
-      >
-        {heading}
-      </Typography>
 
       {/* Image */}
       <Box
