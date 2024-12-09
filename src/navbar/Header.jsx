@@ -230,7 +230,7 @@ const Header = () => {
             onClick={scrollToTop}
             sx={{ paddingY: 0.5, color: 'black' }} // Adjust vertical padding
           >
-            <ListItemText primary="AboutUs" />
+            <ListItemText primary="About" />
           </ListItem>
           <ListItem
             button
@@ -239,7 +239,7 @@ const Header = () => {
             onClick={scrollToTop}
             sx={{ paddingY: 0.5, color: 'black' }} // Adjust vertical padding
           >
-            <ListItemText primary="RepayNow" />
+            <ListItemText primary="Repay" />
           </ListItem>
           <ListItem
             button
@@ -248,7 +248,7 @@ const Header = () => {
             onClick={scrollToTop}
             sx={{ paddingY: 0.5, color: 'black' }} // Adjust vertical padding
           >
-            <ListItemText primary="ContactUs" />
+            <ListItemText primary="Contact" />
           </ListItem>
         </List>
       </Drawer>

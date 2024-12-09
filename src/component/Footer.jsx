@@ -6,7 +6,9 @@ import {
   Grid,
   IconButton,
 } from "@mui/material";
-import { Facebook, YouTube, Instagram, LinkedIn,Twitter } from "@mui/icons-material";
+import { Facebook, YouTube, Instagram,LinkedIn } from "@mui/icons-material";
+import xLogo from "../assets/image/logo.webp"; // Replace with your actual path
+
 import Logo from '../assets/image/120 Days Logo     Hindi (1).webp'; // Adjust the path based on your structure
 
 const Footer = () => {
@@ -229,38 +231,47 @@ const Footer = () => {
       <Instagram />
     </IconButton>
     <IconButton
-      component="a"
-      href="https://x.com/120daysfinance"
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        bgcolor: "black",
-        color: "white",
-        margin: 0.5,
-        "&:hover": {
-          bgcolor: "gray",
-        },
-      }}
-    >
-      <Twitter />
-    </IconButton>
-    <IconButton
-      component="a"
-      href="https://www.linkedin.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        bgcolor: "black",
-        color: "white",
-        margin: 0.5,
-        "&:hover": {
-          bgcolor: "gray",
-        },
-      }}
-    >
-      <LinkedIn />
-    </IconButton>
-  </Box>
+        component="a"
+        href="https://x.com/120daysfinance"
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          bgcolor: "black",
+          color: "white",
+          margin: 0.5,
+          "&:hover": {
+            bgcolor: "gray",
+          },
+        }}
+      >
+        <img
+          src={xLogo}
+          alt="X Logo"
+          style={{
+            width: 24, // Adjust the width as needed
+            height: 24, // Adjust the height as needed
+            objectFit: "contain",
+          }}
+        />
+      </IconButton>
+
+      <IconButton
+        component="a"
+        href="https://www.linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          bgcolor: "black",
+          color: "white",
+          margin: 0.5,
+          "&:hover": {
+            bgcolor: "gray",
+          },
+        }}
+      >
+        <LinkedIn />
+      </IconButton>
+        </Box>
 </Grid>
 
 </Grid>
