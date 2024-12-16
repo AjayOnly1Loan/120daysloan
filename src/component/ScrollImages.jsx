@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 // Import your images
-import image1 from '../assets/image/MakeUp-Artist-Image-New.jpg';
-import image2 from '../assets/image/Entrepreneur.png';
-import image3 from '../assets/image/Butique.png';
-import image4 from '../assets/image/Saloon.png';
-import image5 from '../assets/image/Contractor.png';
+import image1 from '../assets/image/silai.webp';
+import image2 from '../assets/image/badai.webp';
+import image3 from '../assets/image/Saloon.png';
+import image4 from '../assets/image/hotidukan.webp';
+import image5 from '../assets/image/shopkeeper.webp';
 import image6 from '../assets/image/Small Buisness Owner.png';
-import image7 from '../assets/image/Startup.png'
+import image7 from '../assets/image/Startup.png';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -55,173 +55,159 @@ const useStyles = makeStyles(() => ({
     padding: 10,
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
   },
-  innerBox: {
-    width: '100%',
-    height: '100%',
-    padding: 10,
-    position: 'relative',
-    overflow: 'hidden',
-    borderRadius: '10px',
-    border: '1.8px solid #333333',
-  },
-  innerBox2: {
-    width: '100%',
-    height: '100%',
-    padding: 10,
-    position: 'relative',
-    overflow: 'hidden',
-    borderRadius: '10px',
-    border: '1.7px solid #666666',
-  },
-  innerBox3: {
-    width: '100%',
-    height: '100%',
-    padding: 10,
-    position: 'relative',
-    overflow: 'hidden',
-    borderRadius: '10px',
-    border: '1.5px solid #999999',
-  },
-  innerBox4: {
-    width: '100%',
-    height: '100%',
-    padding: 10,
-    position: 'relative',
-    overflow: 'hidden',
-    borderRadius: '10px',
-  },
-  scrollContainer: {
-    borderRadius: '10px',
-    width: '100%',
-    height: '100%',
-    overflowY: 'auto',
-    position: 'relative',
-    scrollBehavior: 'smooth',
-    /* Hide scrollbar */
-    scrollbarWidth: 'none', // For Firefox
-    '-ms-overflow-style': 'none', // For IE and Edge
-    '&::-webkit-scrollbar': {
-      display: 'none', // For Chrome, Safari, and Opera
-    },
-  },
   imageWrapper: {
     borderRadius: '10px',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     width: '100%',
     height: '100%',
-  },
-  imageContainer: {
-    borderRadius: '10px',
-    width: '100%',
-    height: '600px', // Adjust as needed for large screens
+    overflow: 'hidden',
     position: 'relative',
   },
-  image: {
-    width: '100%',
-    height: '100%',
+  imageContainer: {
+    flex: 'none',
+    padding: '0 1px',
   },
-  textBox: {
+  image: {
+    width: 'auto',
+    height: 'auto',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
+  button: {
     position: 'absolute',
-    borderBottom: 'none',
-    bottom: '0px', // Move text box to the bottom
-    left: '20px', // Move text box to the left
-    backgroundColor: 'rgba(255, 255, 255, 0.6)', // Semi-transparent white background
-    color: 'Black',
-    border: '2px solid white',
-    width: '300px', // Width to make it square
-    height: '200px', // Height to make it square
+    top: '50%',
+    transform: 'translateY(-50%)',
+    backgroundColor: '#ffffff',
+    border: 'none',
+    padding: '10px',
+    cursor: 'pointer',
+    zIndex: 1,
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+  },
+  leftButton: {
+    left: '10px',
+  },
+  rightButton: {
+    right: '10px',
+  },
+  dotsContainer: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    borderTopLeftRadius: '25px',
-    borderTopRightRadius: '25px',
-    fontSize: '34px', // Smaller font size to fit in the square box
-    textAlign: 'center',
-    padding: '5px',
+    marginTop: '10px',
   },
-
+  dot: {
+    width: '10px',
+    height: '10px',
+    borderRadius: '50%',
+    margin: '0 5px',
+    backgroundColor: '#ccc',
+    cursor: 'pointer',
+    '&.active': {
+      backgroundColor: '#333',
+    },
+  },
   // Media query for smaller screens
   '@media (max-width: 600px)': {
     container: {
-      height: '60vh', // Decrease height on small screens
+      height: '60vh',
       paddingLeft: '10px',
       paddingRight: '10px',
     },
-    imageWrapper:{
-      height:'300px'
-
+    imageWrapper: {
+      height: '300px',
     },
-    textBox:{
-      width: '60px', // Width to make it square
-    height: '50px', // Height to make it square
-    fontSize:'15px'
-
-    },
-    image:{
-      height:'30vh'
-
-    },
-    imageContainer: {
-      height: '100vh', // Adjust height to show one image at a time on small screens
-    },
-    
-    scrollContainer: {
-      height: '100%', // Ensure container fills the available space
+    image: {
+      height: '30vh',
     },
   },
 }));
 
-const ScrollImages = () => {
+const ScrollImages = ({ id="eligible-people" }) => {
   const classes = useStyles();
-  const images = [image1, image2, image3, image4,image5,image6,image7];
-  const texts = ['Make-Up Artist  ', 'Entrepreneur', 'Boutique', 'Salon','Contractor','Small Business Owner','Startup'];
-  const scrollRef = useRef();
+  const images = [image1, image2, image3, image4, image5, image6, image7];
+  const scrollContainerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false); // State to track hover
 
-  const handleScroll = () => {
-    const scrollTop = scrollRef.current.scrollTop;
-    const scrollThreshold = 300; // Height of each image container
-    const newImageIndex = Math.floor(scrollTop / scrollThreshold);
+  // Function to scroll based on the direction (+1 for next, -1 for previous)
+  const handleScroll = (direction) => {
+    let newIndex = currentIndex + direction;
+    if (newIndex < 0) newIndex = images.length - 1;
+    if (newIndex >= images.length) newIndex = 0;
 
-    setCurrentImageIndex(newImageIndex);
+    setCurrentIndex(newIndex);
+
+    const scrollPosition = (scrollContainerRef.current.scrollWidth / images.length) * newIndex;
+    scrollContainerRef.current.scrollTo({ left: scrollPosition, behavior: 'smooth' });
   };
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+    const scrollPosition = (scrollContainerRef.current.scrollWidth / images.length) * index;
+    scrollContainerRef.current.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+  };
 
+  // Effect for automatic scrolling
   useEffect(() => {
-    const scrollElement = scrollRef.current;
-    scrollElement.addEventListener('scroll', handleScroll);
+    if (isHovered) return; // Pause auto-scroll if hovered
 
-    return () => scrollElement.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Set up automatic scrolling every 5 seconds (5000ms)
+    const autoScroll = setInterval(() => {
+      handleScroll(1); // Scroll forward (next image)
+    }, 5000);
+
+    // Clear the interval when the component is unmounted or the index changes
+    return () => clearInterval(autoScroll);
+  }, [currentIndex, isHovered]); // Depend on `isHovered` and `currentIndex`
 
   return (
-<Box className={classes.container}>
-<Box className={classes.outerBox}>
-        <Typography sx={  {fontSize: { xs: "2rem", md: "3rem" },
-} }>
+    <Box
+      className={classes.container}
+      id={id} // Pass the `id` prop here
+      onMouseEnter={() => setIsHovered(true)} // Pause auto-scroll on hover
+      onMouseLeave={() => setIsHovered(false)} // Resume auto-scroll when hover ends
+    >
+      <Box className={classes.outerBox}>
+        <Typography sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
           Eligible Profiles
         </Typography>
         <Box className={classes.middleBox}>
-          <Box className={classes.innerBox}>
-            <Box className={classes.innerBox2}>
-              <Box className={classes.innerBox3}>
-                <Box className={classes.innerBox4}>
-                  <Box className={classes.scrollContainer} ref={scrollRef}>
-                    <Box id="eligible-people" 
-                    className={classes.imageWrapper}>
-                      {images.map((img, index) => (
-                        <Box className={classes.imageContainer} key={index}>
-                          <img src={img} alt={`image-${index}`} className={classes.image} />
-                          <Box className={classes.textBox}>{texts[index]}</Box>
-                        </Box>
-                      ))}
-                    </Box>
-                  </Box>
-                </Box>
+          <Box
+            className={classes.imageWrapper}
+            ref={scrollContainerRef}
+            onMouseWheel={(e) => {
+              e.preventDefault();
+              scrollContainerRef.current.scrollLeft += e.deltaY;
+            }}
+          >
+            {images.map((img, index) => (
+              <Box className={classes.imageContainer} key={index}>
+                <img src={img} alt={`image-${index}`} className={classes.image} />
               </Box>
-            </Box>
+            ))}
           </Box>
+          <button
+            className={`${classes.button} ${classes.leftButton}`}
+            onClick={() => handleScroll(-1)} // Go to previous image
+          >
+            &#60;
+          </button>
+          <button
+            className={`${classes.button} ${classes.rightButton}`}
+            onClick={() => handleScroll(1)} // Go to next image
+          >
+            &#62;
+          </button>
+        </Box>
+        <Box className={classes.dotsContainer}>
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={`${classes.dot} ${currentIndex === index ? 'active' : ''}`}
+              onClick={() => handleDotClick(index)} // Jump to the selected image
+            />
+          ))}
         </Box>
       </Box>
     </Box>
