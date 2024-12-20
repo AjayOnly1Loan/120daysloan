@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography, Container, Grid, InputAdornment, Checkbox, FormControlLabel } from '@mui/material';
-import { Person, Email, Phone, Business, CurrencyRupee, AccountBalance, LocationCity, PinDrop, Map } from '@mui/icons-material';
+import { Person, Email, Phone, Business, CurrencyRupee, AccountBalance, LocationCity, PinDrop, Map, CleaningServices } from '@mui/icons-material';
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import ApplyNowImage from '../assets/image/Apply-Now-Banner-Image.jpg'; // Replace with your image path
 
@@ -43,7 +43,7 @@ const ApplyNow = () => {
             const { Block, State } = data[0].PostOffice[0];
             setCity(Block);
             setState(State);
-            console.log('City:', Block, 'State:', State);
+            setFormValues(pre => ({...pre,city:Block,state:State}))
           } else {
             // Handle invalid pin code case
             setCity('');
@@ -74,7 +74,6 @@ const ApplyNow = () => {
       setState('');
     }
   };
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     let error = '';
@@ -151,10 +150,8 @@ const ApplyNow = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
     const errors = validateForm(); // Validate form and get errors
     
-    console.log("the values of onject ",Object.keys(errors).length)
     // Check for validation errors
     if (Object.keys(errors).length >=2) {
       setFormErrors(errors); // Set the errors in state
@@ -170,12 +167,13 @@ const ApplyNow = () => {
         },
         body: JSON.stringify({
           ...formValues,
-          state: state,
-          city: city,
+          // state: state,
+          // city: city,
           termsAccepted,
           source: 'website',
         }),
       });
+
   
       if (!response.ok) throw new Error('Network response was not ok');
   
@@ -262,7 +260,7 @@ const ApplyNow = () => {
         <Box 
           component="form" 
           id="loanForm" 
-          onChange={handleSubmit}
+          // onSubmit={handleSubmit}
         
           sx={{ 
             display: 'flex', 
@@ -694,6 +692,7 @@ const ApplyNow = () => {
           label="GST No"
           variant="outlined"
           fullWidth
+          onChange={handleInputChange}
           name="gstNo"
           InputProps={{
             startAdornment: (
@@ -744,6 +743,7 @@ const ApplyNow = () => {
           label="Loan Amount (₹)"
           type="number"
           variant="outlined"
+          onChange={handleInputChange}
           fullWidth
           required
           name="loanAmount"
@@ -799,6 +799,7 @@ const ApplyNow = () => {
           type="number"
           variant="outlined"
           fullWidth
+          onChange={handleInputChange}
           required
           name="turnover"
           InputProps={{
