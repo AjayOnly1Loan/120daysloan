@@ -6,22 +6,132 @@ import ApplyNowImage from '../assets/image/Apply-Now-Banner-Image.jpg'; // Repla
 
 const ApplyNow = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [state, setState] = useState('');
+  const [city, setCity] = useState('');
+  const [formValues, setFormValues] = useState({
+    fullName:'',
+        pan:'',
+        mobile:'',
+        personalEmail:'',
+        businessName:'',
+        propertyType:'',
+        gstNo:'',
+        loanAmount:'',
+        turnover:'',
+        pinCode:'',
+        state:'',
+        city:'',
+    
+  });
+  const [formErrors, setFormErrors] = useState({});
+
+  const handlePincodeChange = async (e) => {
+    const value = e.target.value;
+    setFormValues({ ...formValues, pinCode: value });
+    console.log(value);
+    
+    // Fetch city and state based on pincode
+    if (value.length === 6) {
+      try {
+        const response = await fetch(`https://api.postalpincode.in/pincode/${value}`);
+        const data = await response.json();
+
+        if (data[0].Status === "Success") {
+          const { Block, State } = data[0].PostOffice[0];
+          setCity(Block);
+          setState(State);
+          console.log(city, state);
+          
+        } else {
+          // Handle invalid pin code case
+          setCity('');
+          setState('');
+          Swal.fire({
+            icon: 'error',
+            title: 'Invalid Pincode',
+            text: 'Please enter a valid pincode.',
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching pincode data:', error);
+      }
+    } else {
+      setCity('');
+      setState('');
+    }
+  };
+
 
   const handleCheckboxChange = (event) => {
     setTermsAccepted(event.target.checked);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Show SweetAlert on button click
-    Swal.fire({
-      title: 'Success!',
-      text: 'Our executive will call you or revert you back in 24 hours.',
-      icon: 'success',
-      confirmButtonText: 'OK'
-    });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    const errors = validateForm(); // Validate form and get errors
+    
+    console.log("the values of onject ",Object.keys(errors).length)
+    // Check for validation errors
+    if (Object.keys(errors).length >=2) {
+      setFormErrors(errors); // Set the errors in state
+      return; // Prevent submission
+    }
+  
+    // Proceed with form submission if there are no errors
+    try {
+      const response = await fetch('api.120daysfinance.com/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formValues,
+          state: state,
+          city: city,
+          termsAccepted,
+          source: 'website',
+        }),
+      });
+  
+      if (!response.ok) throw new Error('Network response was not ok');
+  
+      const result = await response.json();
+  
+      Swal.fire({
+        title: 'Success!',
+        text: 'Our executive will call you or revert you back in 24 hours.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      });
+  
+      // Reset form after successful submission
+      setFormValues({
+        pan:'',
+        mobile:'',
+        personalEmail:'',
+        businessName:'',
+        propertyType:'',
+        gstNo:'',
+        loanAmount:'',
+        turnover:'',
+        pinCode:'',
+        state:'',
+        city:'',
+      });
+      setTermsAccepted(false);
+     
+      setFormErrors({}); // Reset form errors
+    } catch (error) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Something went wrong. Please try again later.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
+    }
   };
+  
 
   return (
     <div>
@@ -91,7 +201,10 @@ const ApplyNow = () => {
       variant="outlined"
       fullWidth 
       required 
-      name="first_name" 
+
+        
+
+      name="fullName" 
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
@@ -247,7 +360,7 @@ const ApplyNow = () => {
       variant="outlined" 
       fullWidth 
       required 
-      name="email_personal" 
+      name="personalEmail" 
       InputProps={{
         startAdornment: (
           <InputAdornment position="start" >
@@ -293,6 +406,7 @@ const ApplyNow = () => {
     />
   </Grid>
 </Grid>
+       
 
 
           {/* Financial Information Section */}
@@ -306,7 +420,7 @@ const ApplyNow = () => {
           label="Business Name"
           variant="outlined"
           fullWidth
-          name="business-name"
+          name="businessName"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -356,7 +470,7 @@ const ApplyNow = () => {
     fullWidth
     required
     select
-    name="businessProperty"
+    name="propertyType"
     placeholder="Property Type"
     sx={{
       mb: 2,
@@ -427,7 +541,7 @@ const ApplyNow = () => {
           label="GST No"
           variant="outlined"
           fullWidth
-          name="gst-no"
+          name="gstNo"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -479,7 +593,7 @@ const ApplyNow = () => {
           variant="outlined"
           fullWidth
           required
-          name="loan_amount"
+          name="loanAmount"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -522,6 +636,8 @@ const ApplyNow = () => {
           }}
         />
       </Grid>
+      
+       
 
       {/* Yearly Turnover */}
       <Grid item xs={12} md={6}>
@@ -531,7 +647,7 @@ const ApplyNow = () => {
           variant="outlined"
           fullWidth
           required
-          name="yearly-turn-over"
+          name="turnover"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -578,11 +694,13 @@ const ApplyNow = () => {
       {/* State */}
       <Grid item xs={12} md={6}>
         <TextField
-          label="Select State"
-          variant="outlined"
-          fullWidth
-          required
-          name="state_id"
+         fullWidth
+         required
+         name='state'
+         label="State"
+         value={state}
+         error={!!formErrors.state}
+         helperText={formErrors.state || ''}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -629,11 +747,14 @@ const ApplyNow = () => {
       {/* City */}
       <Grid item xs={12} md={6}>
         <TextField
-          label="Select City"
-          variant="outlined"
-          fullWidth
-          required
-          name="city_id"
+         fullWidth
+         required
+         name='city'
+         label="City"
+         value={city}
+         error={!!formErrors.city}
+         helperText={formErrors.city || ''}
+
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -684,7 +805,9 @@ const ApplyNow = () => {
           variant="outlined"
           fullWidth
           required
-          name="pincode"
+          name="pinCode"
+          onChange={handlePincodeChange}
+
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -753,6 +876,8 @@ const ApplyNow = () => {
           <Button 
             type="submit" 
             variant="contained" 
+            onClick={handleSubmit}
+
             sx={{ 
               backgroundColor: 'white', 
               color: 'black', 

@@ -74,27 +74,26 @@ const useStyles = makeStyles(() => ({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  dotsContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0 10px',
+  },
   button: {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
     backgroundColor: '#ffffff',
     border: 'none',
     padding: '10px',
     cursor: 'pointer',
     zIndex: 1,
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    borderRadius: '50%', // Optional for circular buttons
   },
   leftButton: {
-    left: '10px',
+    marginRight: '10px', // Add spacing between the button and dots
   },
   rightButton: {
-    right: '10px',
-  },
-  dotsContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '10px',
+    marginLeft: '10px', // Add spacing between the button and dots
   },
   dot: {
     width: '10px',
@@ -168,48 +167,51 @@ const ScrollImages = ({ id="eligible-people" }) => {
       onMouseEnter={() => setIsHovered(true)} // Pause auto-scroll on hover
       onMouseLeave={() => setIsHovered(false)} // Resume auto-scroll when hover ends
     >
-      <Box className={classes.outerBox}>
-        <Typography sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
-          Eligible Profiles
-        </Typography>
-        <Box className={classes.middleBox}>
-          <Box
-            className={classes.imageWrapper}
-            ref={scrollContainerRef}
-            onMouseWheel={(e) => {
-              e.preventDefault();
-              scrollContainerRef.current.scrollLeft += e.deltaY;
-            }}
-          >
-            {images.map((img, index) => (
-              <Box className={classes.imageContainer} key={index}>
-                <img src={img} alt={`image-${index}`} className={classes.image} />
-              </Box>
-            ))}
-          </Box>
-          <button
-            className={`${classes.button} ${classes.leftButton}`}
-            onClick={() => handleScroll(-1)} // Go to previous image
-          >
-            &#60;
-          </button>
-          <button
-            className={`${classes.button} ${classes.rightButton}`}
-            onClick={() => handleScroll(1)} // Go to next image
-          >
-            &#62;
-          </button>
+     <Box className={classes.outerBox}>
+  <Typography sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
+    Eligible Profiles
+  </Typography>
+  <Box className={classes.middleBox}>
+    <Box
+      className={classes.imageWrapper}
+      ref={scrollContainerRef}
+      onMouseWheel={(e) => {
+        e.preventDefault();
+        scrollContainerRef.current.scrollLeft += e.deltaY;
+      }}
+    >
+      {images.map((img, index) => (
+        <Box className={classes.imageContainer} key={index}>
+          <img src={img} alt={`image-${index}`} className={classes.image} />
         </Box>
-        <Box className={classes.dotsContainer}>
-          {images.map((_, index) => (
-            <div
-              key={index}
-              className={`${classes.dot} ${currentIndex === index ? 'active' : ''}`}
-              onClick={() => handleDotClick(index)} // Jump to the selected image
-            />
-          ))}
-        </Box>
-      </Box>
+      ))}
+    </Box>
+  </Box>
+  <Box display="flex" alignItems="center" justifyContent="center" mt={2}>
+    <button
+      className={`${classes.button} ${classes.leftButton}`}
+      onClick={() => handleScroll(-1)}
+    >
+      &#60;
+    </button>
+    <Box className={classes.dotsContainer}>
+      {images.map((_, index) => (
+        <div
+          key={index}
+          className={`${classes.dot} ${currentIndex === index ? 'active' : ''}`}
+          onClick={() => handleDotClick(index)}
+        />
+      ))}
+    </Box>
+    <button
+      className={`${classes.button} ${classes.rightButton}`}
+      onClick={() => handleScroll(1)}
+    >
+      &#62;
+    </button>
+  </Box>
+</Box>
+
     </Box>
   );
 };
