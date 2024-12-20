@@ -12,6 +12,7 @@ const ApplyNow = () => {
     fullName:'',
         pan:'',
         mobile:'',
+        aadhaar:'',
         personalEmail:'',
         businessName:'',
         propertyType:'',
@@ -76,73 +77,71 @@ const ApplyNow = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log("the pan value is 1",value)
-  
-    // Validation for input fields (only block if invalid input is entered)
-  
+    let error = '';
+
     // Mobile: Only digits and max 10 characters
-    if (name === 'fullName' && !/^[A-Za-z\s]*$/.test(value)) return;
-  
-    if (name === 'mobile' && (!/^\d*$/.test(value) || value.length > 10)) return;
-  
-    // Salary and Loan Amount: Only digits
-    if ((name === 'salary' || name === 'loanAmount') && !/^\d*$/.test(value)) return;
-  
-    // PinCode: Only digits and max 6 characters
-    if (name === 'pinCode' && (!/^\d*$/.test(value) || value.length > 6)) return;
-  
-    // Aadhaar: Only digits and max 12 characters
-    // if (name === 'aadhaar' && (!/^\d*$/.test(value) || value.length > 12)) return;
-    
+    if (name === 'mobile' && (!/^\d*$/.test(value) || value.length > 10)) {
+        error = 'Mobile number must be a 10-digit number';
+    }
+
+    // PAN: Validate the PAN number format
     if (name === 'pan') {
-      // Convert to uppercase for consistency
-      const panInput = value.toUpperCase();
-  
-      // Allow only up to 10 characters and validate per character
-      if (panInput.length <= 10) {
-          // Regular expression to match PAN format progressively
-          if (
-              /^[A-Z]{0,5}$/.test(panInput) || // First 5 characters must be letters
-              /^[A-Z]{5}\d{0,4}$/.test(panInput) || // Next 4 characters must be digits
-              /^[A-Z]{5}\d{4}[A-Z]?$/.test(panInput) // Last character must be a letter
-          ) {
-              setFormValues({ ...formValues, [name]: panInput });
-              setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' })); // Clear any error message
-          } else {
-              setFormErrors((prevErrors) => ({
-                  ...prevErrors,
-                  [name]: 'PAN format should be 5 letters, 4 digits, and 1 letter (e.g., ABCDE1234F).',
-              }));
-          }
-      }
-      return; // Prevent further processing if input exceeds 10 characters
-  }
-  
+        const panInput = value.toUpperCase();  // Convert PAN to uppercase for consistency
+        if (panInput.length <= 10) {
+            if (
+                /^[A-Z]{0,5}$/.test(panInput) || // First 5 characters must be letters
+                /^[A-Z]{5}\d{0,4}$/.test(panInput) || // Next 4 characters must be digits
+                /^[A-Z]{5}\d{4}[A-Z]?$/.test(panInput) // Last character must be a letter
+            ) {
+                setFormValues({ ...formValues, [name]: panInput });
+                error = ''; // Clear any error message
+            } else {
+                error = 'PAN format should be 5 letters, 4 digits, and 1 letter (e.g., ABCDE1234F).';
+            }
+        }
+    }
 
-  
-    
+    // Aadhaar: Only digits and max 12 characters
+    if (name === 'aadhaar' && (!/^\d*$/.test(value) || value.length > 12)) {
+        error = 'Aadhaar number must be a 12-digit number';
+    }
 
-    console.log("the pan value is ",value)
     // Update form values and reset errors for the specific field
     setFormValues({ ...formValues, [name]: value });
-    setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
-  };
+    setFormErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+};
+
 
 
   const validateForm = () => {
     const errors = {};
-    const mobileValid = /^\d{10}$/.test(formValues.mobile); // Ensure 10-digit mobile
-    const panValid = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formValues.pan); // Validate PAN format
+    
+    // Validation checks for PAN, Aadhaar, and Mobile
+    const aadhaarValid = /^\d{12}$/.test(formValues.aadhaar);
+    const emailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formValues.personalEmail);
+    const pinCodeValid = /^\d{6}$/.test(formValues.pinCode);
+    const mobileValid = /^\d{10}$/.test(formValues.mobile);  // Validate mobile number
+    const panValid = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formValues.pan);  // Validate PAN format
+    
+    if (!aadhaarValid) errors.aadhaar = 'Aadhaar number must be a 12-digit number';
+    if (!mobileValid) errors.mobile = 'Mobile number must be a 10-digit number';
+    if (!panValid) errors.pan = 'Invalid PAN format (e.g., ABCDE1234F)';
+    if (!emailValid) errors.personalEmail = 'Invalid email format';
+    if (!pinCodeValid) errors.pinCode = 'PinCode must be 6 digits';
+    if (!termsAccepted) errors.termsAccepted = 'You must accept the Terms & Conditions';
+    // if (!state) errors.state = 'Please select a state';
+    // if (!city) errors.city = 'Please select a city';
 
-    // Other validations...
-
-    if (!mobileValid) errors.mobile = 'Mobile number must be a 10-digit number'; // Display error if invalid
-    if (!panValid) errors.pan = 'Invalid PAN format (e.g., ABCDE1234F)'; // Display error if invalid
-
-    // Other errors...
+    // Required field checks
+    Object.keys(formValues).forEach((field) => {
+      if (!formValues[field]) {
+        errors[field] = 'This field is required';
+      }
+    });
 
     return errors;
 };
+
 
 
 
@@ -193,6 +192,7 @@ const ApplyNow = () => {
       setFormValues({
         pan:'',
         mobile:'',
+        aadhaar:'',
         personalEmail:'',
         businessName:'',
         propertyType:'',
@@ -262,7 +262,7 @@ const ApplyNow = () => {
         <Box 
           component="form" 
           id="loanForm" 
-          onChange={handleInputChange}
+          onChange={handleSubmit}
         
           sx={{ 
             display: 'flex', 
@@ -386,7 +386,60 @@ const ApplyNow = () => {
             },
         }} 
     />
-    {formErrors.pan && <Typography color="error">{formErrors.pan}</Typography>} {/* Error message */}
+{formErrors.pan && <Typography color="error">{formErrors.pan}</Typography>}
+</Grid>
+<Grid item xs={12} md={6}>
+    <TextField 
+        label="Aadhar Card" 
+        variant="outlined" 
+        fullWidth 
+        required 
+        onChange={handleInputChange}
+        name="aadhaar" 
+        InputProps={{
+            startAdornment: (
+                <InputAdornment position="start">
+                    <Box sx={{ backgroundColor: 'white', borderRadius: '50%', padding: '4px' }}>
+                        <AccountBalance sx={{ color: 'black' }} />
+                    </Box>
+                </InputAdornment>
+            ),
+            style: {
+                color: 'white',  // Text color
+            },
+        }}
+        placeholder="Enter your Aadhar number"
+        sx={{
+            mb: 2, 
+            color: 'white',
+            borderRadius: '8px',
+            transition: 'transform 0.2s',
+            '&:hover': {
+                transform: 'scale(1.02)',
+            },
+            '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                    borderColor: 'white',
+                },
+                '&:hover fieldset': {
+                    borderColor: 'white',
+                },
+                '&.Mui-focused fieldset': {
+                    borderColor: 'white',
+                },
+            },
+            '& .MuiInputLabel-root': {
+                color: 'white',
+            },
+            '& .MuiInputBase-input': {
+                color: 'white',
+            },
+            '& .MuiOutlinedInput-root .MuiInputBase-input::placeholder': {
+                color: 'white',
+            },
+        }} 
+    />
+{formErrors.aadhaar && <Typography color="error">{formErrors.aadhaar}</Typography>}
 </Grid>
 
   <Grid item xs={12} md={6}>
@@ -443,6 +496,8 @@ const ApplyNow = () => {
         },
       }} 
     />
+        {formErrors.mobile && <Typography color="error">{formErrors.mobile}</Typography>}
+
   </Grid>
   <Grid item xs={12} md={6}>
     <TextField 
@@ -497,6 +552,7 @@ const ApplyNow = () => {
         },
       }} 
     />
+
   </Grid>
 </Grid>
        
