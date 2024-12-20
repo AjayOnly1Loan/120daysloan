@@ -27,39 +27,123 @@ const ApplyNow = () => {
 
   const handlePincodeChange = async (e) => {
     const value = e.target.value;
-    setFormValues({ ...formValues, pinCode: value });
-    console.log(value);
-    
-    // Fetch city and state based on pincode
-    if (value.length === 6) {
-      try {
-        const response = await fetch(`https://api.postalpincode.in/pincode/${value}`);
-        const data = await response.json();
-
-        if (data[0].Status === "Success") {
-          const { Block, State } = data[0].PostOffice[0];
-          setCity(Block);
-          setState(State);
-          console.log(city, state);
-          
-        } else {
-          // Handle invalid pin code case
-          setCity('');
-          setState('');
+  
+    // Only allow numeric input and ensure the pincode has no more than 6 digits
+    if (/^\d{0,6}$/.test(value)) {
+      setFormValues({ ...formValues, pinCode: value });
+  
+      // If the pincode has exactly 6 digits, fetch city and state
+      if (value.length === 6) {
+        try {
+          const response = await fetch(`https://api.postalpincode.in/pincode/${value}`);
+          const data = await response.json();
+  
+          if (data[0].Status === "Success") {
+            const { Block, State } = data[0].PostOffice[0];
+            setCity(Block);
+            setState(State);
+            console.log('City:', Block, 'State:', State);
+          } else {
+            // Handle invalid pin code case
+            setCity('');
+            setState('');
+            Swal.fire({
+              icon: 'error',
+              title: 'Invalid Pincode',
+              text: 'Please enter a valid pincode.',
+            });
+          }
+        } catch (error) {
+          console.error('Error fetching pincode data:', error);
           Swal.fire({
             icon: 'error',
-            title: 'Invalid Pincode',
-            text: 'Please enter a valid pincode.',
+            title: 'Error',
+            text: 'An error occurred while fetching data. Please try again later.',
           });
         }
-      } catch (error) {
-        console.error('Error fetching pincode data:', error);
+      } else {
+        // Reset city and state if pincode is incomplete
+        setCity('');
+        setState('');
       }
     } else {
+      // Clear the pincode and reset city/state if input is invalid
+      setFormValues({ ...formValues, pinCode: '' });
       setCity('');
       setState('');
     }
   };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log("the pan value is 1",value)
+  
+    // Validation for input fields (only block if invalid input is entered)
+  
+    // Mobile: Only digits and max 10 characters
+    if (name === 'fullName' && !/^[A-Za-z\s]*$/.test(value)) return;
+  
+    if (name === 'mobile' && (!/^\d*$/.test(value) || value.length > 10)) return;
+  
+    // Salary and Loan Amount: Only digits
+    if ((name === 'salary' || name === 'loanAmount') && !/^\d*$/.test(value)) return;
+  
+    // PinCode: Only digits and max 6 characters
+    if (name === 'pinCode' && (!/^\d*$/.test(value) || value.length > 6)) return;
+  
+    // Aadhaar: Only digits and max 12 characters
+    // if (name === 'aadhaar' && (!/^\d*$/.test(value) || value.length > 12)) return;
+    
+    if (name === 'pan') {
+      // Convert to uppercase for consistency
+      const panInput = value.toUpperCase();
+  
+      // Allow only up to 10 characters and validate per character
+      if (panInput.length <= 10) {
+          // Regular expression to match PAN format progressively
+          if (
+              /^[A-Z]{0,5}$/.test(panInput) || // First 5 characters must be letters
+              /^[A-Z]{5}\d{0,4}$/.test(panInput) || // Next 4 characters must be digits
+              /^[A-Z]{5}\d{4}[A-Z]?$/.test(panInput) // Last character must be a letter
+          ) {
+              setFormValues({ ...formValues, [name]: panInput });
+              setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' })); // Clear any error message
+          } else {
+              setFormErrors((prevErrors) => ({
+                  ...prevErrors,
+                  [name]: 'PAN format should be 5 letters, 4 digits, and 1 letter (e.g., ABCDE1234F).',
+              }));
+          }
+      }
+      return; // Prevent further processing if input exceeds 10 characters
+  }
+  
+
+  
+    
+
+    console.log("the pan value is ",value)
+    // Update form values and reset errors for the specific field
+    setFormValues({ ...formValues, [name]: value });
+    setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
+  };
+
+
+  const validateForm = () => {
+    const errors = {};
+    const mobileValid = /^\d{10}$/.test(formValues.mobile); // Ensure 10-digit mobile
+    const panValid = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formValues.pan); // Validate PAN format
+
+    // Other validations...
+
+    if (!mobileValid) errors.mobile = 'Mobile number must be a 10-digit number'; // Display error if invalid
+    if (!panValid) errors.pan = 'Invalid PAN format (e.g., ABCDE1234F)'; // Display error if invalid
+
+    // Other errors...
+
+    return errors;
+};
+
 
 
   const handleCheckboxChange = (event) => {
@@ -80,7 +164,7 @@ const ApplyNow = () => {
   
     // Proceed with form submission if there are no errors
     try {
-      const response = await fetch('api.120daysfinance.com/api/leads', {
+      const response = await fetch('https://api.120daysfinance.com/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -178,7 +262,8 @@ const ApplyNow = () => {
         <Box 
           component="form" 
           id="loanForm" 
-          onSubmit={handleSubmit} // Add onSubmit handler
+          onChange={handleInputChange}
+        
           sx={{ 
             display: 'flex', 
             flexDirection: 'column', 
@@ -203,6 +288,7 @@ const ApplyNow = () => {
       required 
 
         
+      onChange={handleInputChange}
 
       name="fullName" 
       InputProps={{
@@ -251,55 +337,58 @@ const ApplyNow = () => {
   </Grid>
   <Grid item xs={12} md={6}>
     <TextField 
-      label="PAN Card" 
-      variant="outlined" 
-      fullWidth 
-      required 
-      name="pan" 
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <Box sx={{ backgroundColor: 'white', borderRadius: '50%', padding: '4px' }}>
-              <AccountBalance sx={{ color: 'black' }} />
-            </Box>
-          </InputAdornment>
-        ),
-        style: {
-          color: 'white',  // Text color
-        },
-      }}
-      placeholder="Enter your PAN number"
-      sx={{ 
-        mb: 2, 
-        color: 'white',  // Text color
-        borderRadius: '8px',
-        transition: 'transform 0.2s',
-        '&:hover': {
-          transform: 'scale(1.02)',
-        },
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
-            borderColor: 'white',  // Border color
-          },
-          '&:hover fieldset': {
-            borderColor: 'white',  // Border color on hover
-          },
-          '&.Mui-focused fieldset': {
-            borderColor: 'white',  // Border color on focus
-          },
-        },
-        '& .MuiInputLabel-root': {
-          color: 'white',  // Label color
-        },
-        '& .MuiInputBase-input': {
-          color: 'white',  // Text input color
-        },
-        '& .MuiOutlinedInput-root .MuiInputBase-input::placeholder': {
-          color: 'white',  // Placeholder color
-        },
-      }} 
+        label="PAN Card" 
+        variant="outlined" 
+        fullWidth 
+        required 
+        onChange={handleInputChange}
+        name="pan" 
+        InputProps={{
+            startAdornment: (
+                <InputAdornment position="start">
+                    <Box sx={{ backgroundColor: 'white', borderRadius: '50%', padding: '4px' }}>
+                        <AccountBalance sx={{ color: 'black' }} />
+                    </Box>
+                </InputAdornment>
+            ),
+            style: {
+                color: 'white',  // Text color
+            },
+        }}
+        placeholder="Enter your PAN number"
+        sx={{
+            mb: 2, 
+            color: 'white',
+            borderRadius: '8px',
+            transition: 'transform 0.2s',
+            '&:hover': {
+                transform: 'scale(1.02)',
+            },
+            '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                    borderColor: 'white',
+                },
+                '&:hover fieldset': {
+                    borderColor: 'white',
+                },
+                '&.Mui-focused fieldset': {
+                    borderColor: 'white',
+                },
+            },
+            '& .MuiInputLabel-root': {
+                color: 'white',
+            },
+            '& .MuiInputBase-input': {
+                color: 'white',
+            },
+            '& .MuiOutlinedInput-root .MuiInputBase-input::placeholder': {
+                color: 'white',
+            },
+        }} 
     />
-  </Grid>
+    {formErrors.pan && <Typography color="error">{formErrors.pan}</Typography>} {/* Error message */}
+</Grid>
+
   <Grid item xs={12} md={6}>
     <TextField 
       label="Mobile Number" 
@@ -307,6 +396,8 @@ const ApplyNow = () => {
       variant="outlined" 
       fullWidth 
       required 
+      onChange={handleInputChange}
+
       name="mobile" 
       inputProps={{ minLength: 10, maxLength: 10 }} 
       InputProps={{
@@ -360,6 +451,8 @@ const ApplyNow = () => {
       variant="outlined" 
       fullWidth 
       required 
+      onChange={handleInputChange}
+
       name="personalEmail" 
       InputProps={{
         startAdornment: (
@@ -420,6 +513,8 @@ const ApplyNow = () => {
           label="Business Name"
           variant="outlined"
           fullWidth
+          onChange={handleInputChange}
+
           name="businessName"
           InputProps={{
             startAdornment: (
@@ -469,6 +564,8 @@ const ApplyNow = () => {
     variant="outlined"
     fullWidth
     required
+    onChange={handleInputChange}
+
     select
     name="propertyType"
     placeholder="Property Type"
