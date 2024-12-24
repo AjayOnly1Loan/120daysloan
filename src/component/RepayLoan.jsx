@@ -156,7 +156,7 @@ const RepayLoan = () => {
           lineHeight: '1.8',
         }}
       >
-        Naman Finlease Private Limited
+        RICHMAN FINCAP LIMITED
       </Typography>
     </Grid>
 

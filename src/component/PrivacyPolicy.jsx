@@ -36,7 +36,7 @@ const PrivacyPolicy = () => {
                 "We do not sell or rent your personal information to third parties. However, we may share your data under the following circumstances:",
                 "• With trusted third-party service providers who assist in delivering our services, such as payment processors, verification agencies, etc.",
                 "• To comply with legal obligations, regulatory requests, or to protect the rights and safety of 120daysfinance.com and its users.",
-                "• With Naman Finlease Private Limited, our parent NBFC, for processing loan applications and facilitating transactions."
+                "• With RICHMAN FINCAP LIMITED, our parent NBFC, for processing loan applications and facilitating transactions."
             ]
         },
         

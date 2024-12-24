@@ -77,7 +77,7 @@ const FAQs = () => {
       {
         id: 'faq1',
         question: '1. What is 120daysfinance?',
-        answer: `120daysfinance is an online platform operated by Naman Finlease Private Limited, an RBI-registered NBFC, offering short-term business loans to small vendors, micro-entrepreneurs, and SMEs across India.`,
+        answer: `120daysfinance is an online platform operated by RICHMAN FINCAP LIMITED, an RBI-registered NBFC, offering short-term business loans to small vendors, micro-entrepreneurs, and SMEs across India.`,
       },
       {
         id: 'faq2',
