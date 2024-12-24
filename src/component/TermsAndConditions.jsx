@@ -166,7 +166,7 @@ const TermsAndConditions = () => {
 
                         <Divider sx={{ my: 2 }} />
 
-                        <Box>
+                        <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                             8. Fees and Charges
                         </Typography>
@@ -183,7 +183,7 @@ const TermsAndConditions = () => {
                     <Divider sx={{ my: 2 }} />
 
                     {/* Section 9: Borrower's Obligations */}
-                    <Box>
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                             9. Borrower’s Obligations
                         </Typography>
@@ -199,7 +199,7 @@ const TermsAndConditions = () => {
                     <Divider sx={{ my: 2 }} />
 
                     {/* Section 10: Privacy and Data Security */}
-                    <Box>
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                             10. Privacy and Data Security
                         </Typography>
@@ -210,7 +210,7 @@ const TermsAndConditions = () => {
                     <Divider sx={{ my: 2 }} />
 
                     {/* Section 11: Limitation of Liability */}
-                    <Box>
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                             11. Limitation of Liability
                         </Typography>
@@ -226,7 +226,7 @@ const TermsAndConditions = () => {
                     <Divider sx={{ my: 2 }} />
 
                     {/* Section 12: Termination of Services */}
-                    <Box>
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                             12. Termination of Services
                         </Typography>
@@ -242,7 +242,7 @@ const TermsAndConditions = () => {
                     <Divider sx={{ my: 2 }} />
 
                     {/* Section 13: Governing Law and Jurisdiction */}
-                    <Box>
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                             13. Governing Law and Jurisdiction
                         </Typography>
@@ -253,7 +253,7 @@ const TermsAndConditions = () => {
                     <Divider sx={{ my: 2 }} />
 
                     {/* Section 14: Contact Us */}
-                    <Box>
+                    <Box sx={{ transition: 'transform 0.3s ease-in-out', '&:hover': { transform: 'scale(1.05)' } }}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                             14. Contact Us
                         </Typography>
